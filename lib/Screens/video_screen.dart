@@ -7,7 +7,7 @@ class IntroVideo extends StatefulWidget {
   State<IntroVideo> createState() => _IntroVideoState();
 }
 
-class _IntroVideoState extends State<IntroVideo> {
+class _IntroVideoState  extends State<IntroVideo> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
