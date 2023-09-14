@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hijabista/Widget/BottomNavigationBar/bottom_navigation_bar.dart';
 import 'package:hijabista/Screens/page_view/custom_pageView_button.dart';
 import 'package:hijabista/Widget/text/text.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';

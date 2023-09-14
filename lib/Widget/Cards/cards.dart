@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hijabista/Screens/cart_screen/add_item_to_cart.dart';
+
 
 class CustomCard extends StatefulWidget {
   final List<String> imageList = [

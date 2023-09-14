@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hijabista/Widget/Cards/cards.dart';
 import 'package:hijabista/Screens/Home_Page/Home%20Bar/home_upper_bar.dart';
-import 'package:hijabista/Screens/cart_screen/add_item_to_cart.dart';
+
 
 class CategoryPage extends StatefulWidget {
   const CategoryPage({Key? key});
