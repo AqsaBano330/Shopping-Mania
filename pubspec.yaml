@@ -36,8 +36,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   smooth_page_indicator: ^1.1.0
-  fluid_bottom_nav_bar: ^1.4.0
-  animated_bottom_navigation_bar: ^1.2.0
+  
+  curved_navigation_bar: ^1.0.3
   any_animated_button: ^0.0.4
   video_player: ^2.7.1
   
@@ -70,7 +70,7 @@ flutter:
     - assets/images/image1.jpg
     - assets/images/image2.jpg
     - assets/images/hijab_vector_2.jpg
-    - assets/images/Cart.png
+    - assets/images/bag.png
     - assets/images/BannerCard.png
     - assets/images/online_shopping_1.jpg
 

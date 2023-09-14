@@ -17,7 +17,7 @@ class _AddToCartState extends State<AddToCart> {
       child: Stack(
         children: [
           Container(
-            child: Image.asset("assets/images/Cart.png"),
+            child: Image.asset("assets/images/bag.png"),
             height: 30,
             width: 30,
           ),

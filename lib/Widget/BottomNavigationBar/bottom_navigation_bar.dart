@@ -1,21 +1,22 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:hijabista/Screens/Category/category_page.dart';
 import 'package:hijabista/Screens/Favorites/favorites_screen.dart';
 import 'package:hijabista/Screens/Home_Page/home_screen.dart';
 import 'package:hijabista/Screens/More/more_page.dart';
+import 'package:hijabista/Widget/color/colors.dart';
 
-class BottomNavigationBarDemo extends StatefulWidget {
-  const BottomNavigationBarDemo({Key? key}) : super(key: key);
+
+class CurveBar extends StatefulWidget {
+  const CurveBar({super.key});
 
   @override
-  _BottomNavigationBarDemoState createState() =>
-      _BottomNavigationBarDemoState();
+  State<CurveBar> createState() => _CurveBarState();
 }
 
-class _BottomNavigationBarDemoState extends State<BottomNavigationBarDemo> {
-  int _currentIndex = 0;
-
-  final List<Widget> _pages = [
+class _CurveBarState extends State<CurveBar> {
+  int index = 0;
+  final screen = const [
     const HomePage(),
     const CategoryPage(),
     const FavoritesPage(),
@@ -24,53 +25,44 @@ class _BottomNavigationBarDemoState extends State<BottomNavigationBarDemo> {
 
   @override
   Widget build(BuildContext context) {
+    final items = [
+      const Icon(Icons.home, size: 25),
+      const Icon(Icons.category, size: 25),
+      const Icon(Icons.favorite, size: 25),
+      const Icon(Icons.more, size: 25),
+      
+    ];
     return Scaffold(
-      body: _pages[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.purple[200],
-        currentIndex: _currentIndex,
-        onTap: (int index) {
-          setState(() {
-            _currentIndex = index;
-          });
-
-          // Perform navigation based on the selected item
-          // if (index == 0) {
-          //   // Navigate to the Home page
-          //   Navigator.of(context).pushReplacement(
-          //     MaterialPageRoute(builder: (context) => HomePage()),
-          //   );
-          // } else if (index == 2) {
-          //   // Navigate to the Favorites page
-          //   Navigator.of(context).pushReplacement(
-          //     MaterialPageRoute(builder: (context) => FavoritesPage()),
-          //   );
-          // }
-        },
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-            backgroundColor: Color(0xFF550080),
+     
+      // extendBody: true,
+     
+      body: screen[index],
+      bottomNavigationBar: Theme(
+        // this them is for to change icon colors.
+        data: Theme.of(context).copyWith(
+            iconTheme: const IconThemeData(
+          color: Colors.white,
+        )),
+        child: CurvedNavigationBar(
+          // navigationBar colors
+          color: AppColors.Black,
+          //selected times colors
+          buttonBackgroundColor: AppColors.Peach,
+          backgroundColor: Colors.transparent,
+          items: items,
+          height: 50,
+          index: index,
+          onTap: (index) => setState(
+            () => this.index = index,
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.category),
-            label: "Category",
-            backgroundColor: Color(0xFF550080),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: "Favorites",
-            backgroundColor: Color(0xFF550080),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.more),
-            label: "More",
-            backgroundColor: Color(0xFF550080),
-          ),
-        ],
+        ),
       ),
     );
   }
 }
+
+
+
+
+
+

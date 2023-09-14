@@ -1,13 +1,6 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
-class CustomColor extends StatelessWidget {
-  const CustomColor({super.key});
-
-  
-
-  @override
-  Widget build(BuildContext context) {
-
-    return const Placeholder();
-  }
+class AppColors {
+  static Color Peach = const Color(0xffCB4E47);
+  static Color Black = const Color(0xff000000);
 }
