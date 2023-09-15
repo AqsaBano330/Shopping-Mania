@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hijabista/Screens/page_view/page_view.dart';
 
-
-
-
 void main() {
   runApp(const MyApp());
 }
