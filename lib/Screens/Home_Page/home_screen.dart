@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hijabista/Widget/Cards/cards.dart';
 import 'package:hijabista/Screens/Home_Page/Home%20Bar/home_upper_bar.dart';
-import 'package:hijabista/Widget/color/colors.dart';
 import 'package:hijabista/Widget/text/text.dart';
 
 class HomePage extends StatefulWidget {
