@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
 
                       // First PageView with CustomCard
                       SizedBox(
@@ -96,7 +96,8 @@ class _HomePageState extends State<HomePage> {
 
                       // Second PageView (You can customize it as needed)
                       SizedBox(
-                        height: 270,
+                        height: 257
+                        ,
                         width: MediaQuery.of(context).size.width,
                         child: PageView.builder(
                           itemCount: imageList.length,
@@ -132,26 +133,36 @@ class _HomePageState extends State<HomePage> {
 
                       // Third PageView (You can customize it as needed)
                       SizedBox(
-                        height: 300,
+                        height: 257
+                        ,
                         width: MediaQuery.of(context).size.width,
                         child: PageView.builder(
-                          physics: BouncingScrollPhysics(),
+                          itemCount: imageList.length,
+                          padEnds: false,
+                          pageSnapping: false,
+                          physics: const BouncingScrollPhysics(),
+                          reverse: true,
                           controller: PageController(
-                            initialPage: 3,
-                            viewportFraction: 0.7,
+                            initialPage: 0,
+                            viewportFraction: 0.4,
                           ),
                           itemBuilder: (context, index) {
-                            print(index % imageList.length);
-                            return Container(
-                              margin: const EdgeInsets.all(8),
-                              clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(25),
-                              ),
-                              child: Image.asset(
-                                imageList[index % imageList.length],
-                                fit: BoxFit.cover,
-                              ),
+                            return CustomCard(
+                              index: index,
+                              CurrentItems: CurrentItems,
+                              CartItems: CartItems,
+                              imageList: imageList,
+                              alledgeinsets: 90,
+                              circularRadius: 16,
+                              imageHeight: 100,
+                              imageWidth: 100,
+                              ContainerHeight: 67,
+                              ContainerWidth: 56,
+                              margintop: 20,
+                              marginbottom: 30,
+                              marginleft: 10,
+                              marginright: 10,
+                              text1: productName[index],
                             );
                           },
                         ),

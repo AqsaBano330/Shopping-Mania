@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class CustomCard extends StatefulWidget {
   final List<String> imageList = [
     "assets/images/hijab_vector_1.jpg",
@@ -64,21 +63,20 @@ class _CustomCardState extends State<CustomCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: widget.ContainerHeight,
-      width: widget.ContainerWidth,
-      padding: EdgeInsets.all(10),
-      margin: EdgeInsets.only(
-          top: widget.margintop,
-          bottom: widget.marginbottom,
-          left: widget.marginleft,
-          right: widget.marginright),
-      clipBehavior: Clip.antiAlias,
-      decoration: BoxDecoration(
-        color: Color(0xFFd3d3d3),
-        borderRadius: BorderRadius.circular(widget.circularRadius),
-      ),
-      child: Column(
-        children: [
+        height: widget.ContainerHeight,
+        width: widget.ContainerWidth,
+        padding: EdgeInsets.all(10),
+        margin: EdgeInsets.only(
+            top: widget.margintop,
+            bottom: widget.marginbottom,
+            left: widget.marginleft,
+            right: widget.marginright),
+        clipBehavior: Clip.antiAlias,
+        decoration: BoxDecoration(
+          color: Color(0xFFd3d3d3),
+          borderRadius: BorderRadius.circular(widget.circularRadius),
+        ),
+        child: Column(children: [
           Container(
               height: widget.imageHeight,
               width: widget.imageWidth,
@@ -100,31 +98,31 @@ class _CustomCardState extends State<CustomCard> {
               ),
             ),
           ),
-         const Text(
-              "Organic",
-              style: TextStyle(
-                fontFamily: "Manrope",
-                fontWeight: FontWeight.w400,
-                fontSize: 12,
-                color: Color(0xff616A7D),
-              ),
+          const Text(
+            "Organic",
+            style: TextStyle(
+              fontFamily: "Manrope",
+              fontWeight: FontWeight.w400,
+              fontSize: 12,
+              color: Color(0xff616A7D),
             ),
-          
+          ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("phoo"),
+              Text("p"),
+              Text("12"),
+              Spacer(),
               ElevatedButton(
                 onPressed: addItem,
                 child: Text("+"),
                 style: ElevatedButton.styleFrom(
                   shape: CircleBorder(),
-                  padding: EdgeInsets.all(16.0),
+                  
                 ),
               ),
             ],
           )
-        ],
-      ),
-    );
+        ]));
   }
 }
