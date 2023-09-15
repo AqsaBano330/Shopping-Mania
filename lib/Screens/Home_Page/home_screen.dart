@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hijabista/Widget/Cards/cards.dart';
 import 'package:hijabista/Screens/Home_Page/Home%20Bar/home_upper_bar.dart';
-
+import 'package:hijabista/Widget/color/colors.dart';
+import 'package:hijabista/Widget/text/text.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key});
@@ -15,11 +16,11 @@ class _HomePageState extends State<HomePage> {
   List CartItems = [];
 
   List<String> BannerimageList = [
-    'assets/images/BannerCard.png',
-    'assets/images/BannerCard.png',
-    'assets/images/BannerCard.png',
-    'assets/images/BannerCard.png',
-    'assets/images/BannerCard.png'
+    'assets/images/offer card 1.jpg',
+    'assets/images/offer card 2.jpg',
+    'assets/images/offer card 3.jpg',
+    'assets/images/offer card 2.jpg',
+    'assets/images/offer card 3.jpg',
   ];
 
   List<String> imageList = [
@@ -42,8 +43,6 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: [
               HomeUpperBar(),
-              // Include your HomeUpperBar widget here if needed
-
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
@@ -56,20 +55,21 @@ class _HomePageState extends State<HomePage> {
                         height: 140,
                         width: MediaQuery.of(context).size.width,
                         child: PageView.builder(
-                          padEnds: true,
-                          pageSnapping: false,
-                          physics: BouncingScrollPhysics(),
+                          itemCount: 5,
+                          padEnds: false,
+                          pageSnapping: true,
+                          physics: const BouncingScrollPhysics(),
                           controller: PageController(
-                            initialPage: 3,
+                            initialPage: 0,
                             viewportFraction: 0.7,
                           ),
                           itemBuilder: (context, index) {
                             print(index % BannerimageList.length);
                             return Container(
-                              margin: const EdgeInsets.all(8),
+                              margin: const EdgeInsets.only(top: 10, left: 8),
                               clipBehavior: Clip.antiAlias,
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
+                                borderRadius: BorderRadius.circular(16),
                               ),
                               child: Image.asset(
                                 BannerimageList[index % BannerimageList.length],
@@ -82,19 +82,16 @@ class _HomePageState extends State<HomePage> {
 
                       Container(
                         margin:
-                            const EdgeInsets.only(left: 10, top: 10, bottom: 0),
+                            const EdgeInsets.only(left: 10, top: 15, bottom: 0),
                         child: const Align(
-                          alignment:
-                              Alignment.centerLeft, // Align text to the left
-                          child: Text(
-                            "Recommended",
-                            style: TextStyle(
-                              fontFamily: "Manrope",
-                              fontWeight: FontWeight.w400,
-                              fontSize: 26,
-                            ),
-                          ),
-                        ),
+                            alignment:
+                                Alignment.centerLeft, // Align text to the left
+                            child: CustomTextWidget(
+                              yourtext: "Recommended",
+                              fontweight: FontWeight.w400,
+                              fontsize: 30,
+                              fontColor: Color(0xff1E222B),
+                            )),
                       ),
 
                       // Second PageView (You can customize it as needed)
@@ -103,12 +100,12 @@ class _HomePageState extends State<HomePage> {
                         width: MediaQuery.of(context).size.width,
                         child: PageView.builder(
                           itemCount: imageList.length,
-                          padEnds: true,
+                          padEnds: false,
                           pageSnapping: false,
                           physics: const BouncingScrollPhysics(),
                           reverse: true,
                           controller: PageController(
-                            initialPage: 3,
+                            initialPage: 0,
                             viewportFraction: 0.4,
                           ),
                           itemBuilder: (context, index) {
@@ -121,9 +118,9 @@ class _HomePageState extends State<HomePage> {
                               circularRadius: 16,
                               imageHeight: 100,
                               imageWidth: 100,
-                              ContainerHeight: 20,
+                              ContainerHeight: 67,
                               ContainerWidth: 56,
-                              margintop: 30,
+                              margintop: 20,
                               marginbottom: 30,
                               marginleft: 10,
                               marginright: 10,

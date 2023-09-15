@@ -96,11 +96,20 @@ class _CustomCardState extends State<CustomCard> {
                 fontFamily: "Manrope",
                 fontWeight: FontWeight.w600,
                 fontSize: 14,
-                color: Colors.black,
+                color: Color(0xff1E222B),
               ),
             ),
           ),
-          Text("Oraganic"),
+         const Text(
+              "Organic",
+              style: TextStyle(
+                fontFamily: "Manrope",
+                fontWeight: FontWeight.w400,
+                fontSize: 12,
+                color: Color(0xff616A7D),
+              ),
+            ),
+          
           Row(
             children: [
               Text("phoo"),

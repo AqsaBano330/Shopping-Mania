@@ -73,6 +73,9 @@ flutter:
     - assets/images/bag.png
     - assets/images/BannerCard.png
     - assets/images/online_shopping_1.jpg
+    - assets/images/offer card 1.jpg
+    - assets/images/offer card 2.jpg
+    - assets/images/offer card 3.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
