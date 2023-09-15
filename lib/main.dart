@@ -18,7 +18,7 @@ List tabbarList = ["hi", "bye", "shye"];
    
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: Example(
+        home: CustomPageView(
         ));
   }
 }
