@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hijabista/Screens/Category/KurtisScreen/ColorprintKurti.dart';
+import 'package:hijabista/Screens/Category/KurtisScreen/Kurti%20types/ColorprintKurti.dart';
 import 'package:hijabista/Screens/Category/SleepersScreen/sleepers_screen.dart';
 import 'package:hijabista/Widget/text/text.dart';
 
@@ -24,7 +24,7 @@ class CategoryCard extends StatelessWidget {
     return GestureDetector(
       onTap: () { Navigator.push(
     context,
-    MaterialPageRoute(builder: (context) => const ColorprintKurtis()),
+    MaterialPageRoute(builder: (context) =>  ColorPrintKurtis()),
   );},
       child: Container(
         margin: EdgeInsets.only(top: 15, left: 10, right: 15),
@@ -67,3 +67,5 @@ class CategoryCard extends StatelessWidget {
     );
   }
 }
+
+

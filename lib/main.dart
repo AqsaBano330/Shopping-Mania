@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:hijabista/Screens/page_view/page_view.dart';
+
+import 'package:hijabista/Screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,9 +14,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
 
    
-    return MaterialApp(
+    return const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: CustomPageView(
+        home: SplashScreen(
         ));
   }
 }
