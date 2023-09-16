@@ -11,7 +11,7 @@ import 'package:hijabista/Widget/add_to_cart/add_to_cart.dart';
 import 'package:hijabista/Widget/color/colors.dart';
 import 'package:hijabista/Widget/text/text.dart';
 
-List<String> tabbarList = ["Kurtis", "Sleepers", "Hoodies", "Shoes", "Watch"];
+List<String> CategorytabbarList = ["Kurtis", "Sleepers", "Hoodies", "Shoes", "Watch"];
 List<Widget> navigatedList = [
   KurtisScreen(),
   SleepersScreen(),
@@ -26,7 +26,7 @@ class CategoryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: tabbarList.length,
+      length: CategorytabbarList.length,
       child: Scaffold(
         backgroundColor: Colors.white,
         body: SafeArea(
@@ -86,7 +86,7 @@ class CategoryPage extends StatelessWidget {
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
                   ),
-                  tabs: tabbarList.map((tab) {
+                  tabs: CategorytabbarList.map((tab) {
                     return Tab(
                       child: Padding(
                         padding: const EdgeInsets.all(12.0),
