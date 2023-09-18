@@ -22,15 +22,13 @@ class _HomePageState extends State<HomePage> {
     'assets/images/offer card 3.jpg',
   ];
 
-  List<String> imageList = [
-    'assets/images/hijab_vector_1.jpg',
-    'assets/images/hijab_vector_2.jpg',
-    'assets/images/hijab_vector_1.jpg',
-    'assets/images/hijab_vector_2.jpg',
-    'assets/images/hijab_vector_1.jpg'
+  List product = [
+    {"image": "assets/images/hijab_vector_1.jpg", "title": "Lemon"},
+    {"image": "assets/images/hijab_vector_2.jpg", "title": "Orange"},
+    {"image": "assets/images/hijab_vector_1.jpg", "title": "Tomato"},
+    {"image": "assets/images/hijab_vector_2.jpg", "title": "Apple"},
+    {"image": "assets/images/hijab_vector_1.jpg", "title": "Grapes"}
   ];
-
-  List productName = ["Lemon", "Orange", "Tomato", "Apple", "Grapes"];
 
   int currentIndex = 0;
 
@@ -95,11 +93,10 @@ class _HomePageState extends State<HomePage> {
 
                       // Second PageView (You can customize it as needed)
                       SizedBox(
-                        height: 257
-                        ,
+                        height: 257,
                         width: MediaQuery.of(context).size.width,
                         child: PageView.builder(
-                          itemCount: imageList.length,
+                          itemCount: product.length,
                           padEnds: false,
                           pageSnapping: false,
                           physics: const BouncingScrollPhysics(),
@@ -113,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                               index: index,
                               CurrentItems: CurrentItems,
                               CartItems: CartItems,
-                              imageList: imageList,
+                              imageList: product[index]["image"],
                               alledgeinsets: 90,
                               circularRadius: 16,
                               imageHeight: 100,
@@ -124,7 +121,7 @@ class _HomePageState extends State<HomePage> {
                               marginbottom: 30,
                               marginleft: 10,
                               marginright: 10,
-                              text1: productName[index],
+                              text1: product[index]["title"],
                             );
                           },
                         ),
@@ -132,11 +129,10 @@ class _HomePageState extends State<HomePage> {
 
                       // Third PageView (You can customize it as needed)
                       SizedBox(
-                        height: 257
-                        ,
+                        height: 257,
                         width: MediaQuery.of(context).size.width,
                         child: PageView.builder(
-                          itemCount: imageList.length,
+                          itemCount: product.length,
                           padEnds: false,
                           pageSnapping: false,
                           physics: const BouncingScrollPhysics(),
@@ -150,7 +146,7 @@ class _HomePageState extends State<HomePage> {
                               index: index,
                               CurrentItems: CurrentItems,
                               CartItems: CartItems,
-                              imageList: imageList,
+                              imageList: product[index]["image"],
                               alledgeinsets: 90,
                               circularRadius: 16,
                               imageHeight: 100,
@@ -161,7 +157,7 @@ class _HomePageState extends State<HomePage> {
                               marginbottom: 30,
                               marginleft: 10,
                               marginright: 10,
-                              text1: productName[index],
+                              text1: product[index]["title"],
                             );
                           },
                         ),

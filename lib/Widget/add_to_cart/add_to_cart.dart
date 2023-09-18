@@ -4,12 +4,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 class AddToCart extends StatefulWidget {
   const AddToCart({super.key});
 
+   final int cart_value = 0;
+
   @override
   State<AddToCart> createState() => _AddToCartState();
 }
 
 class _AddToCartState extends State<AddToCart> {
-  int cart_value = 0;
+ 
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -43,7 +45,7 @@ class _AddToCartState extends State<AddToCart> {
               radius: 6,
               backgroundColor: Colors.black,
               child: Text(
-                cart_value.toString(),
+                widget.cart_value.toString(),
                 style: const TextStyle(
                   color: Colors.white,
                   fontSize: 8,
