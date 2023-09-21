@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hijabista/Screens/Category/KurtisScreen/Kurti%20types/ColorprintKurti.dart';
-import 'package:hijabista/Screens/Category/SleepersScreen/sleepers_screen.dart';
 import 'package:hijabista/Widget/text/text.dart';
 
 class CategoryCard extends StatelessWidget {

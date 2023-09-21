@@ -1,9 +1,8 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:hijabista/Screens/Category/category_page.dart';
-import 'package:hijabista/Screens/Favorites/favorites_screen.dart';
+
 import 'package:hijabista/Screens/Home_Page/home_screen.dart';
-import 'package:hijabista/Screens/More/more_page.dart';
+
 import 'package:hijabista/Widget/color/colors.dart';
 
 
