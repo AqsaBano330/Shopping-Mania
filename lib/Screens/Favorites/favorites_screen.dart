@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hijabista/Widget/add_to_cart/add_to_cart.dart';
+import 'package:hijabista/Lists/favoriteList.dart';
+import 'package:hijabista/Widget/add_to_cart/add_to_cart.dart'; // Make sure to import AddToCart
 
 class FavoritesPage extends StatelessWidget {
-  const FavoritesPage({Key? key}); // Fixed the constructor
+  const FavoritesPage({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +33,24 @@ class FavoritesPage extends StatelessWidget {
                     ),
                     Container(
                       padding: EdgeInsets.only(top: 20, bottom: 10, left: 30),
-                      child: AddToCart(),
+                      child: AddToCart(), // Make sure AddToCart is correctly implemented
                     ),
                   ],
                 ),
-                
               ],
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: FavList.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  tileColor: Colors.grey,
+                  leading: Image.asset(FavList[index]["image"]), // Wrap with Image.asset
+                  title: Text(FavList[index]["name"]), // Wrap with Text
+                  subtitle: Text(FavList[index]["price"]), // Wrap with Text
+                );
+              },
             ),
           ),
         ],

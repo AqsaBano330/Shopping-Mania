@@ -4,9 +4,14 @@ import 'package:hijabista/Widget/add_to_cart/add_to_cart.dart';
 import 'package:hijabista/Widget/color/colors.dart';
 import 'package:hijabista/Widget/text/text.dart';
 
-class HomeUpperBar extends StatelessWidget {
+class HomeUpperBar extends StatefulWidget {
   const HomeUpperBar({Key? key});
 
+  @override
+  State<HomeUpperBar> createState() => _HomeUpperBarState();
+}
+
+class _HomeUpperBarState extends State<HomeUpperBar> {
   @override
   Widget build(BuildContext context) {
     return Container(

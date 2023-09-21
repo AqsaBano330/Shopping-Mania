@@ -36,8 +36,9 @@ class _CarousalSliderState extends State<CarousalSlider> {
           }).toList(),
           carouselController: _controller,
           options: CarouselOptions(
+            autoPlayAnimationDuration: Duration(milliseconds: 500),
             height: 150,
-            autoPlayInterval: Duration(seconds: 1),
+            autoPlayInterval: Duration(seconds: 2),
             autoPlay: true,
             enlargeCenterPage: true,
             aspectRatio: 2.0,
