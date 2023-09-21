@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hijabista/Screens/page_view/custom_pageView_button.dart';
+import 'package:hijabista/Widget/color/colors.dart';
 import 'package:hijabista/Widget/text/text.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -24,20 +25,10 @@ class CustomPageView extends StatelessWidget {
     return Scaffold(
       body: Stack(children: [
         Container(
-            // decoration: const BoxDecoration(
-            //   gradient: LinearGradient(
-            //     begin: Alignment.topRight,
-            //     end: Alignment.bottomLeft,
-            //     colors: [
-            //       Colors.black,
-            //       Colors.transparent,
-            //     ],
-            //   )
-            // ),
             height: double.infinity,
             width: double.infinity,
             child: Image.asset(
-              "assets/images/online_shopping_1.jpg",
+              "assets/images/pageviewbg/pageviewbg.jpg",
               fit: BoxFit.fill, 
             )),
         Container(
@@ -72,7 +63,7 @@ class CustomPageView extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Container(
-                            margin: EdgeInsets.only(top:30),
+                            margin: const EdgeInsets.only(top:30),
                             child: CustomTextWidget(
                                 yourtext: mainHeading[index],
                                 fontweight: FontWeight.w700,
@@ -84,7 +75,6 @@ class CustomPageView extends StatelessWidget {
                               yourtext: subHeading[index],
                               fontweight: FontWeight.w400,
                               fontsize: 14,
-                              
                               fontColor:  Colors.grey)
                         ],
                       ),
@@ -99,7 +89,7 @@ class CustomPageView extends StatelessWidget {
                   controller: controller,
                   count: 3,
                   axisDirection: Axis.horizontal,
-                  effect: const ExpandingDotsEffect(
+                  effect: ExpandingDotsEffect(
                     spacing: 8.0,
                     radius: 2,
                     dotWidth: 8.0,
@@ -107,7 +97,7 @@ class CustomPageView extends StatelessWidget {
                     paintStyle: PaintingStyle.fill,
                     strokeWidth: 1.5,
                     dotColor: Colors.white,
-                    activeDotColor: Color(0xffCB4E47),
+                    activeDotColor: AppColors.Peach,
                   ),
                 ),
               ),

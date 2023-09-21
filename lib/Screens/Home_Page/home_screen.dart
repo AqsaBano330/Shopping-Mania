@@ -1,6 +1,9 @@
+
 import 'package:flutter/material.dart';
+import 'package:hijabista/Screens/Home_Page/Home%20Upper%20Bar/home_upper_bar.dart';
 import 'package:hijabista/Widget/Cards/cards.dart';
-import 'package:hijabista/Screens/Home_Page/Home%20Bar/home_upper_bar.dart';
+import 'package:hijabista/Widget/CarousalSlider/Carousal_slider.dart';
+
 import 'package:hijabista/Widget/text/text.dart';
 
 class HomePage extends StatefulWidget {
@@ -39,137 +42,141 @@ class _HomePageState extends State<HomePage> {
         body: SafeArea(
           child: Column(
             children: [
-              HomeUpperBar(),
+              const HomeUpperBar(),
+               
               Expanded(
                 child: SingleChildScrollView(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
+                      Container(
+                margin: EdgeInsets.only(top: 10),
+                child: CarousalSlider()),
                       const SizedBox(height: 10),
 
-                      // First PageView with CustomCard
-                      SizedBox(
-                        height: 140,
-                        width: MediaQuery.of(context).size.width,
-                        child: PageView.builder(
-                          itemCount: 5,
-                          padEnds: false,
-                          pageSnapping: true,
-                          physics: const BouncingScrollPhysics(),
-                          controller: PageController(
-                            initialPage: 0,
-                            viewportFraction: 0.7,
-                          ),
-                          itemBuilder: (context, index) {
-                            print(index % BannerimageList.length);
-                            return Container(
-                              margin: const EdgeInsets.only(top: 10, left: 8),
-                              clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(16),
-                              ),
-                              child: Image.asset(
-                                BannerimageList[index % BannerimageList.length],
-                                fit: BoxFit.cover,
-                              ),
-                            );
-                          },
-                        ),
-                      ),
-
-                      Container(
-                        margin:
-                            const EdgeInsets.only(left: 10, top: 15, bottom: 0),
-                        child: const Align(
-                            alignment:
-                                Alignment.centerLeft, // Align text to the left
-                            child: CustomTextWidget(
-                              yourtext: "Recommended",
-                              fontweight: FontWeight.w400,
-                              fontsize: 30,
-                              fontColor: Color(0xff1E222B),
-                            )),
-                      ),
-
-                      // Second PageView (You can customize it as needed)
-                      SizedBox(
-                        height: 257,
-                        width: MediaQuery.of(context).size.width,
-                        child: PageView.builder(
-                          itemCount: product.length,
-                          padEnds: false,
-                          pageSnapping: false,
-                          physics: const BouncingScrollPhysics(),
-                          reverse: true,
-                          controller: PageController(
-                            initialPage: 0,
-                            viewportFraction: 0.4,
-                          ),
-                          itemBuilder: (context, index) {
-                            return CustomCard(
-                              index: index,
-                              CurrentItems: CurrentItems,
-                              CartItems: CartItems,
-                              imageList: product[index]["image"],
-                              alledgeinsets: 90,
-                              circularRadius: 16,
-                              imageHeight: 100,
-                              imageWidth: 100,
-                              ContainerHeight: 67,
-                              ContainerWidth: 56,
-                              margintop: 20,
-                              marginbottom: 30,
-                              marginleft: 10,
-                              marginright: 10,
-                              text1: product[index]["title"],
-                            );
-                          },
-                        ),
-                      ),
-
-                      // Third PageView (You can customize it as needed)
-                      SizedBox(
-                        height: 257,
-                        width: MediaQuery.of(context).size.width,
-                        child: PageView.builder(
-                          itemCount: product.length,
-                          padEnds: false,
-                          pageSnapping: false,
-                          physics: const BouncingScrollPhysics(),
-                          reverse: true,
-                          controller: PageController(
-                            initialPage: 0,
-                            viewportFraction: 0.4,
-                          ),
-                          itemBuilder: (context, index) {
-                            return CustomCard(
-                              index: index,
-                              CurrentItems: CurrentItems,
-                              CartItems: CartItems,
-                              imageList: product[index]["image"],
-                              alledgeinsets: 90,
-                              circularRadius: 16,
-                              imageHeight: 100,
-                              imageWidth: 100,
-                              ContainerHeight: 67,
-                              ContainerWidth: 56,
-                              margintop: 20,
-                              marginbottom: 30,
-                              marginleft: 10,
-                              marginright: 10,
-                              text1: product[index]["title"],
-                            );
-                          },
-                        ),
-                      ),
-                    ],
+              //First PageView with CustomCard
+              SizedBox(
+                height: 140,
+                width: MediaQuery.of(context).size.width,
+                child: PageView.builder(
+                  itemCount: 5,
+                  padEnds: false,
+                  pageSnapping: true,
+                  physics: const BouncingScrollPhysics(),
+                  controller: PageController(
+                    initialPage: 0,
+                    viewportFraction: 0.7,
                   ),
+                  itemBuilder: (context, index) {
+                    print(index % BannerimageList.length);
+                    return Container(
+                      margin: const EdgeInsets.only(top: 10, left: 8),
+                      clipBehavior: Clip.antiAlias,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Image.asset(
+                        BannerimageList[index % BannerimageList.length],
+                        fit: BoxFit.cover,
+                      ),
+                    );
+                  },
+                ),
+              ),
+
+              Container(
+                margin:
+                    const EdgeInsets.only(left: 10, top: 15, bottom: 0),
+                child: const Align(
+                    alignment:
+                        Alignment.centerLeft, // Align text to the left
+                    child: CustomTextWidget(
+                      yourtext: "Recommended",
+                      fontweight: FontWeight.w400,
+                      fontsize: 30,
+                      fontColor: Color(0xff1E222B),
+                    )),
+              ),
+
+             // Second PageView (You can customize it as needed)
+              SizedBox(
+                height: 257,
+                width: MediaQuery.of(context).size.width,
+                child: PageView.builder(
+                  itemCount: product.length,
+                  padEnds: false,
+                  pageSnapping: false,
+                  physics: const BouncingScrollPhysics(),
+                  reverse: true,
+                  controller: PageController(
+                    initialPage: 0,
+                    viewportFraction: 0.4,
+                  ),
+                  itemBuilder: (context, index) {
+                    return CustomCard(
+                      index: index,
+                      CurrentItems: CurrentItems,
+                      CartItems: CartItems,
+                      imageList: BannerimageList,
+                      alledgeinsets: 90,
+                      circularRadius: 16,
+                      imageHeight: 100,
+                      imageWidth: 100,
+                      ContainerHeight: 67,
+                      ContainerWidth: 56,
+                      margintop: 20,
+                      marginbottom: 30,
+                      marginleft: 10,
+                      marginright: 10,
+                      text1: product[index]["title"],
+                    );
+                  },
+                ),
+              ),
+
+              // Third PageView (You can customize it as needed)
+              SizedBox(
+                height: 257,
+                width: MediaQuery.of(context).size.width,
+                child: PageView.builder(
+                  itemCount: product.length,
+                  padEnds: false,
+                  pageSnapping: false,
+                  physics: const BouncingScrollPhysics(),
+                  reverse: true,
+                  controller: PageController(
+                    initialPage: 0,
+                    viewportFraction: 0.4,
+                  ),
+                  itemBuilder: (context, index) {
+                    return CustomCard(
+                      index: index,
+                      CurrentItems: CurrentItems,
+                      CartItems: CartItems,
+                      imageList: BannerimageList,
+                      alledgeinsets: 90,
+                      circularRadius: 16,
+                      imageHeight: 100,
+                      imageWidth: 100,
+                      ContainerHeight: 67,
+                      ContainerWidth: 56,
+                      margintop: 20,
+                      marginbottom: 30,
+                      marginleft: 10,
+                      marginright: 10,
+                      text1: product[index]["title"],
+                    );
+                  },
                 ),
               ),
             ],
           ),
         ),
       ),
+      ],
+    ),
+    ),
+    ),
     );
   }
 }

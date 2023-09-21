@@ -17,10 +17,10 @@ class CurveBar extends StatefulWidget {
 class _CurveBarState extends State<CurveBar> {
   int index = 0;
   final screen = const [
-    const HomePage(),
-    const CategoryPage(),
-    const FavoritesPage(),
-    const MorePage(),
+    HomePage(),
+    //CategoryPage(),
+    //FavoritesPage(),
+    //MorePage(),
   ];
 
   @override
@@ -34,7 +34,7 @@ class _CurveBarState extends State<CurveBar> {
     ];
     return Scaffold(
      
-      // extendBody: true,
+      extendBody: true,
      
       body: screen[index],
       bottomNavigationBar: Theme(

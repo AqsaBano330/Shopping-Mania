@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: FlutterSplashScreen.gif(
         backgroundColor: Colors.white,
-        gifPath: 'assets/images/logo.gif',
+        gifPath: 'assets/images/SplashScreen/SplashScreen.gif',
         gifWidth: 269,
         gifHeight: 474,
         defaultNextScreen: CustomPageView(),
