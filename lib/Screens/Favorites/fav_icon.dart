@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hijabista/Lists/favoriteList.dart';
 import 'package:hijabista/Lists/productList/productList.dart';
-import 'package:hijabista/Widget/Cards/Homecards.dart';
-import 'package:hijabista/Widget/add_to_cart/add_to_cart.dart';
+
 
 class FavIcon extends StatefulWidget {
   const FavIcon({super.key, required this.index});

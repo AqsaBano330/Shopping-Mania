@@ -5,7 +5,6 @@ import 'package:hijabista/Screens/Category/KurtisScreen/kurtis_screen.dart';
 import 'package:hijabista/Screens/Category/ShoesScreen/shoes_screen.dart';
 import 'package:hijabista/Screens/Category/SleepersScreen/sleepers_screen.dart';
 import 'package:hijabista/Screens/Category/WatchScreen/watch_screen.dart';
-import 'package:hijabista/Widget/Search%20Bar/search_bar.dart';
 import 'package:hijabista/Widget/add_to_cart/add_to_cart.dart';
 
 import 'package:hijabista/Widget/color/colors.dart';

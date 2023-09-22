@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:hijabista/Lists/CartItem/cartItem.dart';
 import 'package:hijabista/Lists/productList/productList.dart';
 import 'package:hijabista/Screens/Favorites/fav_icon.dart';
+import 'package:hijabista/Screens/cart_screen/cart_screen.dart';
+import 'package:hijabista/Widget/color/colors.dart';
 import 'package:hijabista/Widget/text/text.dart';
 
-class CustomCard extends StatelessWidget {
+class CustomCard extends StatefulWidget {
   final int index;
 
   CustomCard({
@@ -11,6 +14,11 @@ class CustomCard extends StatelessWidget {
     required this.index,
   });
 
+  @override
+  State<CustomCard> createState() => _CustomCardState();
+}
+
+class _CustomCardState extends State<CustomCard> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,13 +38,13 @@ class CustomCard extends StatelessWidget {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
                   image: DecorationImage(
-                    image: AssetImage(product[index]["image"]),
+                    image: AssetImage(product[widget.index]["image"]),
                     fit: BoxFit.cover,
                   ))),
           Container(
             margin: EdgeInsets.only(top: 4),
             child: Text(
-              product[index]["name"],
+              product[widget.index]["name"],
               style: const TextStyle(
                 fontFamily: "Manrope",
                 fontWeight: FontWeight.w600,
@@ -58,22 +66,47 @@ class CustomCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomTextWidget(
-                yourtext: product[index]["price"].toString(),
+                yourtext: product[widget.index]["price"].toString(),
                 fontweight: FontWeight.w700,
                 fontsize: 14,
                 fontColor: Colors.black,
               ),
 
-              FavIcon(index: index,),
+              FavIcon(index: widget.index,),
           
               Spacer(),
               ElevatedButton(
-                onPressed: () {},
-                child: Text("+"),
-                style: ElevatedButton.styleFrom(
-                  shape: CircleBorder(),
-                ),
-              ),
+  onPressed: () {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        
+        content: Text('Item Added to Cart'),
+        action: SnackBarAction(
+          backgroundColor: Color.fromRGBO(0, 0, 0, 0),
+          disabledBackgroundColor: Color.fromRGBO(0, 0, 0, 0),
+          textColor: AppColors.Peach,
+
+          label: 'View Cart',
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const CartScreen()),
+            );
+          },
+        ),
+      ),
+    );
+
+    CartItem.add(product[widget.index]);
+
+    setState(() {});
+  },
+  child: Text("+"),
+  style: ElevatedButton.styleFrom(
+    shape: CircleBorder(),
+  ),
+),
+
             ],
           )
         ]));
