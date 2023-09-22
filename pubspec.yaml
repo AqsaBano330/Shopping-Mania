@@ -98,6 +98,7 @@ flutter:
     - assets/images/Carousalimages/Ad_Banner5.jpg
     - assets/images/Carousalimages/Ad_Banner6.jpg
     - assets/images/Carousalimages/Ad_Banner7.jpg
+    - assets/images/EmptyCart.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

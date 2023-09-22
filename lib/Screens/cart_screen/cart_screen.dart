@@ -10,18 +10,16 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
-
-  List<Step> stepList() => [
-        const Step(title: Text('Home'), content: Center(child: Text('Home'),)),
-         const Step(title: Text('Cart'), content: Center(child: Text('Cart'),)),
-          const Step(title: Text('Confirm'), content: Center(child: Text('Confirm'),))
-   ];
+  // List<Step> stepList() => [
+  //       const Step(title: Text('Home'), content: Center(child: Text('Home'),)),
+  //        const Step(title: Text('Cart'), content: Center(child: Text('Cart'),)),
+  //         const Step(title: Text('Confirm'), content: Center(child: Text('Confirm'),))
+  //  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
         children: [
-
           Container(
             height: 200,
             color: const Color(0xFF550080),
@@ -45,32 +43,68 @@ class _CartScreenState extends State<CartScreen> {
                     ),
                     Container(
                       padding: EdgeInsets.only(top: 20, bottom: 10, left: 30),
-                      child: AddToCart(), // Make sure AddToCart is correctly implemented
+                      child:
+                          AddToCart(), // Make sure AddToCart is correctly implemented
                     ),
                   ],
                 ),
               ],
             ),
           ),
-           Stepper(
-        steps: stepList(),
-      ),
+          //      Stepper(
+          //   steps: stepList(),
+          // ),
           Expanded(
-            child: ListView.builder(
-              itemCount: CartItem.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  tileColor: Colors.grey,
-                  leading: Image.asset(CartItem[index]["image"]), // Wrap with Image.asset
-                  title: Text(CartItem[index]["name"]), // Wrap with Text
-                  subtitle: Text(CartItem[index]["price"]), // Wrap with Text
-                );
-              },
-            ),
+            child: CartItem.isEmpty
+                ? Center(
+                    child: Image.asset(
+                    "assets/images/EmptyCart.png",
+                    width: 200,
+                    height: 200,
+                  ))
+                : ListView.builder(
+                    itemCount: CartItem.length,
+                    itemBuilder: (context, index) {
+                      return ListTile(
+                        contentPadding: EdgeInsets.all(8.0),
+                        leading: Checkbox(
+                          value: CartItem[index]["isChecked"],
+                          onChanged: (bool? value) {
+                            setState(() {
+                              CartItem[index]["isChecked"] = value;
+                            });
+                          },
+                        ),
+                        title: Row(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.only(left: 0),
+                              child: Image.asset(
+                                CartItem[index]["image"],
+                                width: 45.0,
+                                height: 45.0,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            SizedBox(width: 9.0),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(CartItem[index]["name"]),
+                              ],
+                            ),
+                          ],
+                        ),
+                        trailing: Text(CartItem[index]["price"]),
+                        onTap: () {
+                          // Handle item tap here
+                        },
+                      );
+                    },
+                  ),
           ),
         ],
       ),
     );
   }
 }
-
