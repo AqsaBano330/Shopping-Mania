@@ -86,6 +86,7 @@ import 'package:buttons_tabbar/buttons_tabbar.dart';
 // }
 
 import 'package:flutter/material.dart';
+import 'package:hijabista/Lists/CartItem/cartItem.dart';
 import 'package:hijabista/Screens/Category/KurtisScreen/kurti%20ranges/chic_kurti.dart';
 import 'package:hijabista/Screens/Category/KurtisScreen/kurti%20ranges/current_kurti.dart';
 import 'package:hijabista/Screens/Category/KurtisScreen/kurti%20ranges/lowpricekurti.dart';
@@ -148,7 +149,7 @@ class _ColorPrintKurtisState extends State<ColorPrintKurtis> {
                         Container(
                             padding: const EdgeInsets.only(
                                 top: 20, bottom: 10, left: 30),
-                            child: const AddToCart()),
+                            child:  AddToCart(CartItem: CartItem, cartColor: "white",)),
                       ],
                     ),
                     CustomTextWidget(

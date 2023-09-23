@@ -3,6 +3,7 @@ import 'package:hijabista/Lists/CartItem/cartItem.dart';
 import 'package:hijabista/Lists/productList/productList.dart';
 import 'package:hijabista/Screens/Favorites/fav_icon.dart';
 import 'package:hijabista/Screens/cart_screen/cart_screen.dart';
+import 'package:hijabista/Widget/add_to_cart/add_to_cart.dart';
 import 'package:hijabista/Widget/color/colors.dart';
 import 'package:hijabista/Widget/text/text.dart';
 
@@ -24,7 +25,7 @@ class _CustomCardState extends State<CustomCard> {
     return Container(
         height: 200,
         width: 100,
-        padding: EdgeInsets.only(top:10),
+        padding: EdgeInsets.only(top: 10),
         margin: EdgeInsets.only(top: 20, bottom: 30, left: 10, right: 10),
         clipBehavior: Clip.antiAlias,
         decoration: BoxDecoration(
@@ -71,42 +72,47 @@ class _CustomCardState extends State<CustomCard> {
                 fontsize: 14,
                 fontColor: Colors.black,
               ),
-
-              FavIcon(index: widget.index,),
-          
+              FavIcon(
+                index: widget.index,
+              ),
               Spacer(),
               ElevatedButton(
-  onPressed: () {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        
-        content: Text('Item Added to Cart'),
-        action: SnackBarAction(
-          backgroundColor: Color.fromRGBO(0, 0, 0, 0),
-          disabledBackgroundColor: Color.fromRGBO(0, 0, 0, 0),
-          textColor: AppColors.Peach,
+                onPressed: () {
+                  setState(() {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Item Added to Cart'),
+                        action: SnackBarAction(
+                          backgroundColor: Color.fromRGBO(0, 0, 0, 0),
+                          disabledBackgroundColor: Color.fromRGBO(0, 0, 0, 0),
+                          textColor: AppColors.Peach,
+                          label: 'View Cart',
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const CartScreen()),
+                            );
+                          },
+                        ),
+                      ),
+                    );
+setState(() {
 
-          label: 'View Cart',
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const CartScreen()),
-            );
-          },
-        ),
-      ),
-    );
+  CartItem.add(product[widget.index]);
+                    AddToCart(CartItem:CartItem, cartColor: "white",);
+  
+});
+                    
 
-    CartItem.add(product[widget.index]);
-
-    setState(() {});
-  },
-  child: Text("+"),
-  style: ElevatedButton.styleFrom(
-    shape: CircleBorder(),
-  ),
-),
-
+                    // setState(() {});
+                  });
+                },
+                child: Text("+"),
+                style: ElevatedButton.styleFrom(
+                  shape: CircleBorder(),
+                ),
+              ),
             ],
           )
         ]));

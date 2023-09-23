@@ -44,6 +44,9 @@ dependencies:
   flutter_svg: ^2.0.7
   another_flutter_splash_screen: ^1.1.5
   carousel_slider: ^4.2.1
+  provider: ^6.0.5
+  flutter_rating_bar: ^4.0.1
+  fluttertoast: ^8.2.2
   
 
 dev_dependencies:
@@ -74,7 +77,6 @@ flutter:
     - assets/images/image1.jpg
     - assets/images/image2.jpg
     - assets/images/hijab_vector_2.jpg
-    - assets/images/bag.png
     - assets/images/bag.svg
     - assets/images/BannerCard.png
     - assets/images/pageviewbg/pageviewbg.jpg
@@ -99,6 +101,10 @@ flutter:
     - assets/images/Carousalimages/Ad_Banner6.jpg
     - assets/images/Carousalimages/Ad_Banner7.jpg
     - assets/images/EmptyCart.png
+    - assets/images/whitebag.png
+    - assets/images/blackbag.png
+    - assets/images/black_arrow.png
+    - assets/images/white_arrow.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

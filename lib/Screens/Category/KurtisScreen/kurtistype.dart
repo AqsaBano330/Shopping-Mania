@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hijabista/Lists/CartItem/cartItem.dart';
 import 'package:hijabista/Widget/add_to_cart/add_to_cart.dart';
 import 'package:hijabista/Widget/color/colors.dart';
 
@@ -21,7 +22,7 @@ class KurtisType extends StatelessWidget {
         backgroundColor: AppColors.Peach,
         actions: [Container(
           margin: EdgeInsets.all(20),
-          child: AddToCart())],
+          child: AddToCart(CartItem: CartItem, cartColor: "white",))],
       ),
     );
   }

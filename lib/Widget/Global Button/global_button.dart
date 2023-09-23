@@ -1,37 +1,40 @@
 import 'package:flutter/material.dart';
+import 'package:hijabista/Widget/BottomNavigationBar/bottom_navigation_bar.dart';
 import 'package:hijabista/Widget/color/colors.dart';
 
-class customGlobalButton extends StatelessWidget {
-  const customGlobalButton({
-    super.key,
-    required this.buttonText,
-    required this.width,
-    required this.height,
-    required this.fontSize,
-    this.onPressed, });
+class CustomGlobalButton extends StatefulWidget {
+  const CustomGlobalButton(
+      {super.key,
+      required this.height,
+      required this.width,
+      required this.buttontext});
 
-  final String buttonText;
-  final void Function()? onPressed;
-  final double width;
   final double height;
-  final double fontSize;
- 
+  final double width;
+  final String buttontext;
 
+  @override
+  State<CustomGlobalButton> createState() => _CustomGlobalButtonState();
+}
+
+class _CustomGlobalButtonState extends State<CustomGlobalButton> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.Peach,
-        shadowColor: Colors.black,
-        minimumSize: Size(width, height),
+        minimumSize: Size(widget.width, widget.height),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.0),
+        ),
       ),
-      onPressed: onPressed,
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(buttonText, style: TextStyle(fontSize: fontSize)),
-        ],
-      ),
+      onPressed: () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const CurveBar()),
+        );
+      },
+      child: Text(widget.buttontext, style: TextStyle(fontSize: 20)),
     );
   }
 }

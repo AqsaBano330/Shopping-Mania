@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:hijabista/Lists/CartItem/cartItem.dart';
 import 'package:hijabista/Lists/favoriteList.dart';
+import 'package:hijabista/Lists/productList/productList.dart';
 import 'package:hijabista/Widget/add_to_cart/add_to_cart.dart'; // Make sure to import AddToCart
 
-class FavoritesPage extends StatelessWidget {
+class FavoritesPage extends StatefulWidget {
   const FavoritesPage({Key? key});
 
+  @override
+  State<FavoritesPage> createState() => _FavoritesPageState();
+}
+
+class _FavoritesPageState extends State<FavoritesPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +40,7 @@ class FavoritesPage extends StatelessWidget {
                     ),
                     Container(
                       padding: EdgeInsets.only(top: 20, bottom: 10, left: 30),
-                      child: AddToCart(), // Make sure AddToCart is correctly implemented
+                      child: AddToCart(CartItem: CartItem, cartColor: "black",), // Make sure AddToCart is correctly implemented
                     ),
                   ],
                 ),
@@ -44,11 +51,30 @@ class FavoritesPage extends StatelessWidget {
             child: ListView.builder(
               itemCount: FavList.length,
               itemBuilder: (context, index) {
+                final productItem = FavList[index];
                 return ListTile(
                   tileColor: Colors.grey,
-                  leading: Image.asset(FavList[index]["image"]), // Wrap with Image.asset
-                  title: Text(FavList[index]["name"]), // Wrap with Text
-                  subtitle: Text(FavList[index]["price"]), // Wrap with Text
+                  leading: Image.asset(productItem["image"]),
+                  title: Text(productItem["name"]),
+                  subtitle: Text(productItem["price"]),
+                  trailing: IconButton(
+                    color: productItem["isFav"] == true
+                        ? Colors.red
+                        : Colors.black,
+                    onPressed: () {
+                      setState(() {
+                        productItem["isFav"] = !productItem["isFav"];
+                        if (productItem["isFav"]) {
+                          FavList.add(productItem);
+                        } else {
+                          FavList.remove(productItem);
+                        }
+                      });
+                    },
+                    icon: Icon(
+                      Icons.favorite,
+                    ),
+                  ),
                 );
               },
             ),

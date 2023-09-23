@@ -36,7 +36,7 @@ class _CurveBarState extends State<CurveBar> {
     ];
     return Scaffold(
      
-      extendBody: true,
+      extendBody: false,
      
       body: screen[index],
       bottomNavigationBar: Theme(

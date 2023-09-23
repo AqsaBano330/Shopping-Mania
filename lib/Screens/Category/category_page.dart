@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:buttons_tabbar/buttons_tabbar.dart';
+import 'package:hijabista/Lists/CartItem/cartItem.dart';
 import 'package:hijabista/Screens/Category/HoodiesScreen/hoodies_screen.dart';
 import 'package:hijabista/Screens/Category/KurtisScreen/kurtis_screen.dart';
 import 'package:hijabista/Screens/Category/ShoesScreen/shoes_screen.dart';
@@ -53,7 +54,7 @@ class CategoryPage extends StatelessWidget {
 
               Container(
                   padding: const EdgeInsets.only(top: 20, bottom: 10, left: 30),
-                  child: const AddToCart()),
+                  child:  AddToCart(CartItem: CartItem, cartColor: "white",)),
             ],
           ),
           CustomTextWidget(yourtext: "Shop", fontweight: FontWeight.w300, fontsize: 50, fontColor: Color(0xffFAFBFD)),

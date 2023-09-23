@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hijabista/Lists/CartItem/cartItem.dart';
 import 'package:hijabista/Widget/Search%20Bar/search_bar.dart';
 import 'package:hijabista/Widget/add_to_cart/add_to_cart.dart';
 import 'package:hijabista/Widget/color/colors.dart';
@@ -36,7 +37,7 @@ class _HomeUpperBarState extends State<HomeUpperBar> {
 
               Container(
                   padding: const EdgeInsets.only(top: 20, bottom: 10, left: 30),
-                  child: const AddToCart()),
+                  child: AddToCart(CartItem: CartItem, cartColor: "black",)),
             ],
           ),
           const SizedBox(height: 16.0),
