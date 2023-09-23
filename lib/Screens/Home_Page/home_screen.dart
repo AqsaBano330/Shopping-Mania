@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hijabista/Lists/CartItem/cartItem.dart';
 import 'package:hijabista/Lists/productList/productList.dart';
 import 'package:hijabista/Screens/Favorites/fav_icon.dart';
-import 'package:hijabista/Screens/Home_Page/Home%20Upper%20Bar/home_upper_bar.dart';
-import 'package:hijabista/Screens/cart_screen/cart_screen.dart';
-import 'package:hijabista/Widget/BottomNavigationBar/bottom_navigation_bar.dart';
 import 'package:hijabista/Widget/Cards/Homecards.dart';
 import 'package:hijabista/Widget/CarousalSlider/Carousal_slider.dart';
 import 'package:hijabista/Widget/Search%20Bar/search_bar.dart';
@@ -32,6 +29,14 @@ class _HomePageState extends State<HomePage> {
     'assets/images/offer card 2.jpg',
     'assets/images/offer card 3.jpg',
   ];
+
+  // List product = [
+  //   {"image": "assets/images/hijab_vector_1.jpg", "title": "Lemon"},
+  //   {"image": "assets/images/hijab_vector_2.jpg", "title": "Orange"},
+  //   {"image": "assets/images/hijab_vector_1.jpg", "title": "Tomato"},
+  //   {"image": "assets/images/hijab_vector_2.jpg", "title": "Apple"},
+  //   {"image": "assets/images/hijab_vector_1.jpg", "title": "Grapes"}
+  // ];
 
   int currentIndex = 0;
 
@@ -85,12 +90,42 @@ class _HomePageState extends State<HomePage> {
                           child: CarousalSlider()),
                       const SizedBox(height: 10),
 
+                      //First PageView with CustomCard
+                      // SizedBox(
+                      //   height: 140,
+                      //   width: MediaQuery.of(context).size.width,
+                      //   child: PageView.builder(
+                      //     itemCount: 5,
+                      //     padEnds: false,
+                      //     pageSnapping: true,
+                      //     physics: const BouncingScrollPhysics(),
+                      //     controller: PageController(
+                      //       initialPage: 0,
+                      //       viewportFraction: 0.7,
+                      //     ),
+                      //     itemBuilder: (context, index) {
+                      //       print(index % BannerimageList.length);
+                      //       return Container(
+                      //         margin: const EdgeInsets.only(top: 10, left: 8),
+                      //         clipBehavior: Clip.antiAlias,
+                      //         decoration: BoxDecoration(
+                      //           borderRadius: BorderRadius.circular(16),
+                      //         ),
+                      //         child: Image.asset(
+                      //           BannerimageList[index % BannerimageList.length],
+                      //           fit: BoxFit.cover,
+                      //         ),
+                      //       );
+                      //     },
+                      //   ),
+                      // ),
+
                       Container(
                         margin:
                             const EdgeInsets.only(left: 10, top: 0, bottom: 0),
                         child: const Align(
                             alignment:
-                                Alignment.centerLeft,
+                                Alignment.centerLeft, // Align text to the left
                             child: CustomTextWidget(
                               yourtext: "Recommended",
                               fontweight: FontWeight.w400,
@@ -99,6 +134,7 @@ class _HomePageState extends State<HomePage> {
                             )),
                       ),
 
+                      // Second PageView (You can customize it as needed)
                       SizedBox(
                         height: 320,
                         width: MediaQuery.of(context).size.width,
@@ -115,83 +151,80 @@ class _HomePageState extends State<HomePage> {
                           itemBuilder: (context, index) {
                             return GestureDetector(
                               onTap: () {
-                                // Navigate to ProductDetail page without bottom nav bar
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                    builder: (context) => ProductDetail(),
-                                  ),
+                                      builder: (context) => ProductDetail()),
                                 );
                               },
                               child: Container(
-                                height: 200,
-                                width: 100,
-                                padding: EdgeInsets.only(top: 10),
-                                margin: EdgeInsets.only(
-                                    top: 20, bottom: 30, left: 10, right: 10),
-                                clipBehavior: Clip.antiAlias,
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(16),
-                                ),
-                                child: Column(children: [
-                                  Container(
-                                    height: 170,
-                                    width: 200,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(16),
-                                      image: DecorationImage(
-                                        image: AssetImage(
-                                          product[index]["image"],
+                                  height: 200,
+                                  width: 100,
+                                  padding: EdgeInsets.only(top: 10),
+                                  margin: EdgeInsets.only(
+                                      top: 20, bottom: 30, left: 10, right: 10),
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(16),
+                                  ),
+                                  child: Column(children: [
+                                    Container(
+                                        height: 170,
+                                        width: 200,
+                                        decoration: BoxDecoration(
+                                            borderRadius:
+                                                BorderRadius.circular(16),
+                                            image: DecorationImage(
+                                              image: AssetImage(
+                                                  product[index]["image"]),
+                                              fit: BoxFit.cover,
+                                            ))),
+                                    Container(
+                                      margin: EdgeInsets.only(top: 4),
+                                      child: Text(
+                                        product[index]["name"],
+                                        style: const TextStyle(
+                                          fontFamily: "Manrope",
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 14,
+                                          color: Color(0xff1E222B),
                                         ),
-                                        fit: BoxFit.cover,
                                       ),
                                     ),
-                                  ),
-                                  Container(
-                                    margin: EdgeInsets.only(top: 4),
-                                    child: Text(
-                                      product[index]["name"],
-                                      style: const TextStyle(
+                                    const Text(
+                                      "Organic",
+                                      style: TextStyle(
                                         fontFamily: "Manrope",
-                                        fontWeight: FontWeight.w600,
-                                        fontSize: 14,
-                                        color: Color(0xff1E222B),
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 12,
+                                        color: Color(0xff616A7D),
                                       ),
                                     ),
-                                  ),
-                                  const Text(
-                                    "Organic",
-                                    style: TextStyle(
-                                      fontFamily: "Manrope",
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 12,
-                                      color: Color(0xff616A7D),
-                                    ),
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      CustomTextWidget(
-                                        yourtext: product[index]["price"]
-                                            .toString(),
-                                        fontweight: FontWeight.w700,
-                                        fontsize: 14,
-                                        fontColor: Colors.black,
-                                      ),
-                                      FavIcon(
-                                        index: index,
-                                      ),
-                                      Spacer(),
-                                    ],
-                                  )
-                                ]),
-                              ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        CustomTextWidget(
+                                          yourtext: product[index]["price"]
+                                              .toString(),
+                                          fontweight: FontWeight.w700,
+                                          fontsize: 14,
+                                          fontColor: Colors.black,
+                                        ),
+                                        FavIcon(
+                                          index: index,
+                                        ),
+                                        Spacer(),
+                                      ],
+                                    )
+                                  ])),
                             );
                           },
                         ),
                       ),
 
+                      // Third PageView (You can customize it as needed)
                       SizedBox(
                         height: 257,
                         width: MediaQuery.of(context).size.width,
@@ -219,39 +252,6 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        bottomNavigationBar: currentIndex == 0
-            ? BottomNavigationBar(
-                currentIndex: currentIndex,
-                onTap: (index) {
-                  // Navigate to the corresponding page
-                  if (index == 2) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => CartScreen(),
-                      ),
-                    );
-                  }
-                  setState(() {
-                    currentIndex = index;
-                  });
-                },
-                items: [
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.home),
-                    label: 'Home',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.favorite),
-                    label: 'Favorites',
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.shopping_cart),
-                    label: 'Cart',
-                  ),
-                ],
-              )
-            : null, // Hide bottom nav bar on other pages
       ),
     );
   }

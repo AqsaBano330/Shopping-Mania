@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hijabista/Lists/CartItem/cartItem.dart';
 import 'package:hijabista/Lists/favoriteList.dart';
-import 'package:hijabista/Lists/productList/productList.dart';
 import 'package:hijabista/Widget/add_to_cart/add_to_cart.dart'; // Make sure to import AddToCart
 
 class FavoritesPage extends StatefulWidget {

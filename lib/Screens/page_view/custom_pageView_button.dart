@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hijabista/Screens/Home_Page/home_screen.dart';
 import 'package:hijabista/Widget/BottomNavigationBar/bottom_navigation_bar.dart';
 import 'package:hijabista/Widget/color/colors.dart';
 
