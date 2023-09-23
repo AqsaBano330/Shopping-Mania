@@ -2,44 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:hijabista/Lists/CartItem/cartItem.dart';
 import 'package:hijabista/Lists/productList/productList.dart';
 import 'package:hijabista/Screens/Favorites/fav_icon.dart';
+import 'package:hijabista/Screens/cart_screen/cart_screen.dart';
 import 'package:hijabista/Widget/Cards/Homecards.dart';
 import 'package:hijabista/Widget/CarousalSlider/Carousal_slider.dart';
 import 'package:hijabista/Widget/Search%20Bar/search_bar.dart';
 import 'package:hijabista/Widget/add_to_cart/add_to_cart.dart';
 import 'package:hijabista/Widget/color/colors.dart';
 import 'package:hijabista/Widget/productDetail/productDetail.dart';
-
 import 'package:hijabista/Widget/text/text.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  Map CurrentItems = {};
-  List CartItems = [];
-
-  List<String> BannerimageList = [
-    'assets/images/offer card 1.jpg',
-    'assets/images/offer card 2.jpg',
-    'assets/images/offer card 3.jpg',
-    'assets/images/offer card 2.jpg',
-    'assets/images/offer card 3.jpg',
-  ];
-
-  // List product = [
-  //   {"image": "assets/images/hijab_vector_1.jpg", "title": "Lemon"},
-  //   {"image": "assets/images/hijab_vector_2.jpg", "title": "Orange"},
-  //   {"image": "assets/images/hijab_vector_1.jpg", "title": "Tomato"},
-  //   {"image": "assets/images/hijab_vector_2.jpg", "title": "Apple"},
-  //   {"image": "assets/images/hijab_vector_1.jpg", "title": "Grapes"}
-  // ];
-
-  int currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -70,8 +49,8 @@ class _HomePageState extends State<HomePage> {
                             padding: const EdgeInsets.only(
                                 top: 20, bottom: 10, left: 30),
                             child: AddToCart(
-                              CartItem: CartItem,
-                              cartColor: "white",
+                          
+                              cartColor: "white", CartItem: CartItem,
                             )),
                       ],
                     ),
@@ -89,37 +68,6 @@ class _HomePageState extends State<HomePage> {
                           margin: EdgeInsets.only(top: 10),
                           child: CarousalSlider()),
                       const SizedBox(height: 10),
-
-                      //First PageView with CustomCard
-                      // SizedBox(
-                      //   height: 140,
-                      //   width: MediaQuery.of(context).size.width,
-                      //   child: PageView.builder(
-                      //     itemCount: 5,
-                      //     padEnds: false,
-                      //     pageSnapping: true,
-                      //     physics: const BouncingScrollPhysics(),
-                      //     controller: PageController(
-                      //       initialPage: 0,
-                      //       viewportFraction: 0.7,
-                      //     ),
-                      //     itemBuilder: (context, index) {
-                      //       print(index % BannerimageList.length);
-                      //       return Container(
-                      //         margin: const EdgeInsets.only(top: 10, left: 8),
-                      //         clipBehavior: Clip.antiAlias,
-                      //         decoration: BoxDecoration(
-                      //           borderRadius: BorderRadius.circular(16),
-                      //         ),
-                      //         child: Image.asset(
-                      //           BannerimageList[index % BannerimageList.length],
-                      //           fit: BoxFit.cover,
-                      //         ),
-                      //       );
-                      //     },
-                      //   ),
-                      // ),
-
                       Container(
                         margin:
                             const EdgeInsets.only(left: 10, top: 0, bottom: 0),
@@ -133,8 +81,6 @@ class _HomePageState extends State<HomePage> {
                               fontColor: Color(0xff1E222B),
                             )),
                       ),
-
-                      // Second PageView (You can customize it as needed)
                       SizedBox(
                         height: 320,
                         width: MediaQuery.of(context).size.width,
@@ -160,8 +106,8 @@ class _HomePageState extends State<HomePage> {
                               child: Container(
                                   height: 200,
                                   width: 100,
-                                  padding: EdgeInsets.only(top: 10),
-                                  margin: EdgeInsets.only(
+                                  padding: const EdgeInsets.only(top: 10),
+                                  margin: const EdgeInsets.only(
                                       top: 20, bottom: 30, left: 10, right: 10),
                                   clipBehavior: Clip.antiAlias,
                                   decoration: BoxDecoration(
@@ -223,8 +169,6 @@ class _HomePageState extends State<HomePage> {
                           },
                         ),
                       ),
-
-                      // Third PageView (You can customize it as needed)
                       SizedBox(
                         height: 257,
                         width: MediaQuery.of(context).size.width,
@@ -245,6 +189,15 @@ class _HomePageState extends State<HomePage> {
                           },
                         ),
                       ),
+                      GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => const CartScreen()),
+                            );
+                          },
+                          child: Text("bye"))
                     ],
                   ),
                 ),

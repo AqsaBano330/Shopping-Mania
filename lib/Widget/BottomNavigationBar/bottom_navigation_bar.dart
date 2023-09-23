@@ -37,18 +37,14 @@ class _CurveBarState extends State<CurveBar> {
     return Scaffold(
      
       extendBody: false,
-     
       body: screen[index],
       bottomNavigationBar: Theme(
-        // this them is for to change icon colors.
         data: Theme.of(context).copyWith(
             iconTheme: const IconThemeData(
           color: Colors.white,
         )),
         child: CurvedNavigationBar(
-          // navigationBar colors
           color: AppColors.Black,
-          //selected times colors
           buttonBackgroundColor: AppColors.Peach,
           backgroundColor: Colors.transparent,
           items: items,

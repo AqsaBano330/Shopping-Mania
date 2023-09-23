@@ -1,24 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:hijabista/Screens/Address%20Screen/AddressScreen.dart';
 
 import 'package:hijabista/Screens/splashScreen/splash_screen.dart';
+import 'package:hijabista/Widget/BottomNavigationBar/bottom_navigation_bar.dart';
 
+
+
+
+// main.dart
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  
   @override
   Widget build(BuildContext context) {
-
-   
-    return const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: SplashScreen(
-
-
-        ));
+    return MaterialApp(
+      home: AdressScreen(), // Include the bottom bar here
+    );
   }
 }
