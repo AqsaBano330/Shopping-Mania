@@ -3,6 +3,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hijabista/Lists/CartItem/cartItem.dart';
 import 'package:hijabista/Lists/productList/productList.dart';
 import 'package:hijabista/Screens/Address%20Screen/AddressScreen.dart';
+import 'package:hijabista/Screens/Home_Page/home_screen.dart';
 import 'package:hijabista/Widget/BottomNavigationBar/bottom_navigation_bar.dart';
 import 'package:hijabista/Widget/add_to_cart/add_to_cart.dart';
 import 'package:hijabista/Widget/backButton/Back_Button.dart';
@@ -88,22 +89,26 @@ class _CartScreenState extends State<CartScreen> {
                     itemBuilder: (context, index) {
                       return Container(
                         height: 70,
-                        decoration:  BoxDecoration(
+                        decoration: BoxDecoration(
                           color: Colors.white,
                           border: Border(
                             bottom: BorderSide(
-                              color: AppColors.Peach, // Orange color for the bottom line
+                              color: AppColors
+                                  .Peach, // Orange color for the bottom line
                               width: 1.0, // Adjust the thickness as needed
                             ),
                           ),
                         ),
                         child: ListTile(
                           enabled: true,
-                          contentPadding: const EdgeInsets.only(left: 20.0, right: 4,),
+                          contentPadding: const EdgeInsets.only(
+                            left: 20.0,
+                            right: 4,
+                          ),
                           leading: Container(
                             margin: const EdgeInsets.only(right: 0),
-                            padding: const EdgeInsets.only(right: 8.0, top:10 ,left:2),
-                            
+                            padding: const EdgeInsets.only(
+                                right: 8.0, top: 10, left: 2),
                             child: InkWell(
                               onTap: () {
                                 setState(() {
@@ -161,7 +166,7 @@ class _CartScreenState extends State<CartScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Container(
-                                    padding: const EdgeInsets.only(top:15),
+                                    padding: const EdgeInsets.only(top: 15),
                                     child: Text(
                                       CartItem[index]["name"],
                                       style: const TextStyle(fontSize: 14),
@@ -173,7 +178,8 @@ class _CartScreenState extends State<CartScreen> {
                                         CartItem[index]["price"].toString(),
                                         style: const TextStyle(fontSize: 12),
                                       ),
-                                      const Text("\$", style: TextStyle(fontSize: 12)),
+                                      const Text("\$",
+                                          style: TextStyle(fontSize: 12)),
                                     ],
                                   )
                                 ],
@@ -191,8 +197,7 @@ class _CartScreenState extends State<CartScreen> {
                                     setState(() {
                                       if (CartItem[index]["itemamount"] ==
                                           product[index]["Stock"]) {
-                                        showCustomToast(
-                                            "Out of Stock",
+                                        showCustomToast("Out of Stock",
                                             Colors.black.withOpacity(0.7));
                                       } else {
                                         CartItem[index]["itemamount"]++;
@@ -224,9 +229,10 @@ class _CartScreenState extends State<CartScreen> {
                                   onPressed: () {
                                     setState(() {
                                       CartItem[index]["itemamount"]--;
-                                      if (CartItem[index]["isChecked"] == true) {
-                                        TotalPrice =
-                                            TotalPrice - CartItem[index]["price"];
+                                      if (CartItem[index]["isChecked"] ==
+                                          true) {
+                                        TotalPrice = TotalPrice -
+                                            CartItem[index]["price"];
                                       }
                                       if (CartItem[index]["itemamount"] == 0) {
                                         CartItem.removeAt(index);
@@ -259,21 +265,24 @@ class _CartScreenState extends State<CartScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 16.0,top:20, bottom:10),
+                    padding:
+                        const EdgeInsets.only(left: 16.0, top: 20, bottom: 10),
                     child: Text(
                       "Shopping Amount: ${TotalPrice} ",
                       style: TextStyle(color: Colors.grey[600]),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 16.0,top:10, bottom:10),
+                    padding:
+                        const EdgeInsets.only(left: 16.0, top: 10, bottom: 10),
                     child: Text(
                       "Discount: -${CountTotalAmount(TotalPrice, DeliveryCharges)}",
                       style: TextStyle(color: Colors.grey[600]),
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 16.0,top:10, bottom:10),
+                    padding:
+                        const EdgeInsets.only(left: 16.0, top: 10, bottom: 10),
                     child: Text(
                       TotalPrice == 0
                           ? "Delivery Charges: 0"
@@ -282,7 +291,8 @@ class _CartScreenState extends State<CartScreen> {
                     ),
                   ),
                   Padding(
-                    padding:const EdgeInsets.only(left: 16.0,top:10, bottom:30),
+                    padding:
+                        const EdgeInsets.only(left: 16.0, top: 10, bottom: 30),
                     child: Text(
                       TotalPrice == 0
                           ? "Total Price: 0"
@@ -290,31 +300,33 @@ class _CartScreenState extends State<CartScreen> {
                       style: TextStyle(color: Colors.grey[600]),
                     ),
                   ),
-
                   Center(
                     child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.Peach,
-                          minimumSize: const Size(230, 50),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                        ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const  AddressScreen()),
-                          );
-                        },
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min, 
-                          children: [
-                            CustomTextWidget(yourtext: "Check Out", fontweight: FontWeight.w500, fontsize: 15, fontColor: AppColors.White ),
-                            
-                           
-                          ],
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.Peach,
+                        minimumSize: const Size(230, 50),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
                         ),
                       ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AddressScreen()),
+                        );
+                      },
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          CustomTextWidget(
+                              yourtext: "Check Out",
+                              fontweight: FontWeight.w500,
+                              fontsize: 15,
+                              fontColor: AppColors.White),
+                        ],
+                      ),
+                    ),
                   )
                 ],
               ),

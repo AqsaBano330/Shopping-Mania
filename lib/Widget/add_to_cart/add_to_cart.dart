@@ -16,14 +16,7 @@ class AddToCart extends StatefulWidget {
 class _AddToCartState extends State<AddToCart> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => CartScreen()),
-        );
-      },
-      child: Container(
+    return Container(
         padding: const EdgeInsets.only(right: 10),
         child: Stack(
           children: [
@@ -55,7 +48,7 @@ class _AddToCartState extends State<AddToCart> {
             ),
           ],
         ),
-      ),
-    );
+      );
+    
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hijabista/Lists/CartItem/cartItem.dart';
 import 'package:hijabista/Lists/productList/productList.dart';
 import 'package:hijabista/Screens/Favorites/fav_icon.dart';
+import 'package:hijabista/Screens/cart_screen/cart_screen.dart';
 import 'package:hijabista/Widget/CarousalSlider/Carousal_slider.dart';
 import 'package:hijabista/Widget/Search%20Bar/search_bar.dart';
 import 'package:hijabista/Widget/add_to_cart/add_to_cart.dart';
@@ -43,13 +44,25 @@ class _HomePageState extends State<HomePage> {
                               fontsize: 18.0,
                               fontColor: Color(0xffF8F9FB)),
                         ),
-                        Container(
-                            padding: const EdgeInsets.only(
-                                top: 20, bottom: 10, left: 30),
-                            child: AddToCart(
-                              cartColor: "white",
-                              CartItem: CartItem,
-                            )),
+                        GestureDetector(
+                          onTap: () {
+                          
+                            
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const CartScreen()),
+                              );
+                            
+                          },
+                          child: Container(
+                              padding: const EdgeInsets.only(
+                                  top: 20, bottom: 10, left: 30),
+                              child: AddToCart(
+                                cartColor: "white",
+                                CartItem: CartItem,
+                              )),
+                        ),
                       ],
                     ),
                     const SizedBox(height: 16.0),
@@ -99,13 +112,14 @@ class _HomePageState extends State<HomePage> {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) => ProductDetail(
-                                        imagePath: product[index]
-                                            ["image"],
+                                        imagePath: product[index]["image"],
                                         title: product[index]["name"],
-                                        price: product[index]["price"].toString(),
+                                        price:
+                                            product[index]["price"].toString(),
                                         details: product[index]["details"],
                                         reviews: product[index]["reviews"],
-                                        ratings: product[index]["ratings"], index: index,
+                                        ratings: product[index]["ratings"],
+                                        index: index,
                                       ),
                                     ),
                                   );
@@ -214,13 +228,15 @@ class _HomePageState extends State<HomePage> {
                                               imagePath: product[index]
                                                   ["image"],
                                               title: product[index]["name"],
-                                              price: product[index]["price"].toString(),
+                                              price: product[index]["price"]
+                                                  .toString(),
                                               details: product[index]
                                                   ["details"],
                                               reviews: product[index]
                                                   ["reviews"],
                                               ratings: product[index]
-                                                  ["ratings"], index: index,
+                                                  ["ratings"],
+                                              index: index,
                                             )),
                                   );
                                 },
