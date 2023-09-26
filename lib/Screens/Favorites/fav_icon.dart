@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hijabista/Lists/favoriteList.dart';
 import 'package:hijabista/Lists/productList/productList.dart';
+import 'package:hijabista/Widget/color/colors.dart';
 
 class FavIcon extends StatefulWidget {
   const FavIcon({Key? key, required this.index});
@@ -18,14 +19,14 @@ class _FavIconState extends State<FavIcon> {
       alignment: Alignment.center, // Center alignment
       children: [
         CircleAvatar(
-          radius: 15,
-          backgroundColor: Color.fromRGBO(0, 255, 255, 0.5),
+          radius: 1,
+          backgroundColor:  Colors.transparent,
         ),
         Positioned(
           child: IconButton(
             color: product[widget.index]["isFav"] == true
-                ? Colors.red
-                : Colors.black,
+                ? Colors.red 
+                : Colors.grey,
             onPressed: () {
               setState(() {
                 

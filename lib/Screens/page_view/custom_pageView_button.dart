@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hijabista/Widget/BottomNavigationBar/bottom_navigation_bar.dart';
 import 'package:hijabista/Widget/color/colors.dart';
+import 'package:hijabista/Widget/text/text.dart';
 
 class CustomPageViewButton extends StatelessWidget {
   const CustomPageViewButton({
@@ -23,10 +24,11 @@ class CustomPageViewButton extends StatelessWidget {
           MaterialPageRoute(builder: (context) => const  CurveBar()),
         );
       },
-      child: const Row(
-        mainAxisSize: MainAxisSize.min, // To make the row take minimum space
+      child: Row(
+        mainAxisSize: MainAxisSize.min, 
         children: [
-          Text("Get Started          ", style: TextStyle(fontSize: 20)),
+          CustomTextWidget(yourtext: "Get Started         ", fontweight: FontWeight.w600, fontsize: 20, fontColor: AppColors.White ),
+          
           Icon(Icons.arrow_forward),
         ],
       ),

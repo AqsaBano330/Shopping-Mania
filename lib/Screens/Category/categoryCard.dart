@@ -57,7 +57,9 @@ class CategoryCard extends StatelessWidget {
                 CustomTextWidget(yourtext: Categorytype[index], fontweight: FontWeight.w400, fontsize: 16, fontColor: Color(0xff616A7D)),
                 Spacer(),
                 Text("Starting From", style: TextStyle(color: Color(0xff8891A5)),),
-                CustomTextWidget(yourtext: price[index], fontweight: FontWeight.w400, fontsize: 16, fontColor: Color(0xff2A4BA0)),
+
+                Row(children:[ CustomTextWidget(yourtext: price[index], fontweight: FontWeight.w400, fontsize: 16, fontColor: Color(0xff2A4BA0)),
+                CustomTextWidget(yourtext: "\$", fontweight: FontWeight.w400, fontsize: 16, fontColor: Color(0xff2A4BA0))]),
               ],
             ))
           ],

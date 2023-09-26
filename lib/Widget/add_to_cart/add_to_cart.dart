@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hijabista/Lists/CartItem/cartItem.dart';
 import 'package:hijabista/Screens/cart_screen/cart_screen.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class AddToCart extends StatefulWidget {
   const AddToCart({Key? key, required this.CartItem, required this.cartColor});
@@ -39,7 +40,7 @@ class _AddToCartState extends State<AddToCart> {
               child: Builder(
                 builder: (context) {
                   return CircleAvatar(
-                    radius: 6,
+                    radius: 8,
                     backgroundColor: Colors.black,
                     child: Text(
                       CartItem.length.toString(),

@@ -91,7 +91,9 @@ flutter:
     - assets/images/sleeper3.jpg
     - assets/images/hoodie1.jpg
     - assets/images/hoodie2.jpg
-    - assets/images/hoodie3.PNG
+    - assets/images/hoodie3.jpg
+    - assets/images/hoodie4.PNG
+    - assets/images/hoodie5.jpg
     - assets/images/SplashScreen/SplashScreen.gif
     - assets/images/Carousalimages/Ad_Banner1.jpg
     - assets/images/Carousalimages/Ad_Banner2.jpg
@@ -105,7 +107,8 @@ flutter:
     - assets/images/blackbag.png
     - assets/images/black_arrow.png
     - assets/images/white_arrow.png
-
+    - assets/images/bag.svg
+    - assets/images/success.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

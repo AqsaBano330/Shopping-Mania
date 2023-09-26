@@ -6,28 +6,25 @@ class CustomSearchBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 48, // Increase the height to your desired size
-      width: 300, // Increase the width to your desired size
+      height: 40,
+      width: 300,
       decoration: BoxDecoration(
-        color: Color.fromARGB(255, 174, 53, 46), // Set dark purple background color
+        color: Color(0xffff6d0e),
         borderRadius: BorderRadius.circular(24),
       ),
-      child: Container(
-        
-        child: TextField(
-          decoration: InputDecoration(
-            hintText: "Search",
-            hintStyle: TextStyle(
-              color: Colors.grey[300], // Set placeholder text color
-            ),
-            contentPadding: const EdgeInsets.symmetric(
-                horizontal: 16.0, vertical: 12.0), // Adjust vertical padding
-            border: InputBorder.none,
-            prefixIcon: Icon(Icons.search, color: Colors.grey[300]), // Set search icon
-            prefixIconConstraints: const BoxConstraints(
-              minWidth: 48, 
-              minHeight: 48, 
-            ),
+      child: TextField(
+        decoration: InputDecoration(
+          hintText: "Search",
+          hintStyle: TextStyle(
+            color: Colors.grey[400],
+            fontSize: 14,
+          ),
+          contentPadding: const EdgeInsets.only(left: 16.0, top:6), // Adjust horizontal padding
+          border: InputBorder.none,
+          prefixIcon: Icon(Icons.search, color: Colors.grey[400]),
+          prefixIconConstraints: const BoxConstraints(
+            minWidth: 48,
+            minHeight: 48,
           ),
         ),
       ),

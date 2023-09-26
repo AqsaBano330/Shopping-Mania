@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             children: [
               Container(
-                height: 200,
+                height: 160,
                 color: AppColors.Peach,
                 padding: EdgeInsets.all(18.0),
                 child: Column(
@@ -49,8 +49,8 @@ class _HomePageState extends State<HomePage> {
                             padding: const EdgeInsets.only(
                                 top: 20, bottom: 10, left: 30),
                             child: AddToCart(
-                          
-                              cartColor: "white", CartItem: CartItem,
+                              cartColor: "white",
+                              CartItem: CartItem,
                             )),
                       ],
                     ),
@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                       Container(
                           margin: EdgeInsets.only(top: 10),
                           child: CarousalSlider()),
-                      const SizedBox(height: 10),
+                      const SizedBox(height: 2),
                       Container(
                         margin:
                             const EdgeInsets.only(left: 10, top: 0, bottom: 0),
@@ -76,128 +76,224 @@ class _HomePageState extends State<HomePage> {
                                 Alignment.centerLeft, // Align text to the left
                             child: CustomTextWidget(
                               yourtext: "Recommended",
-                              fontweight: FontWeight.w400,
-                              fontsize: 30,
+                              fontweight: FontWeight.w500,
+                              fontsize: 23,
                               fontColor: Color(0xff1E222B),
                             )),
                       ),
                       SizedBox(
-                        height: 320,
+                        height: 270,
                         width: MediaQuery.of(context).size.width,
                         child: PageView.builder(
                           itemCount: product.length,
                           padEnds: false,
-                          pageSnapping: false,
-                          physics: const BouncingScrollPhysics(),
+                          //pageSnapping: false,
+                          // physics: const BouncingScrollPhysics(),
                           reverse: true,
                           controller: PageController(
-                            initialPage: 0,
                             viewportFraction: 0.5,
                           ),
                           itemBuilder: (context, index) {
-                            return GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ProductDetail()),
-                                );
-                              },
-                              child: Container(
-                                  height: 200,
-                                  width: 100,
-                                  padding: const EdgeInsets.only(top: 10),
-                                  margin: const EdgeInsets.only(
-                                      top: 20, bottom: 30, left: 10, right: 10),
-                                  clipBehavior: Clip.antiAlias,
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.circular(16),
-                                  ),
-                                  child: Column(children: [
-                                    Container(
-                                        height: 170,
-                                        width: 200,
-                                        decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(16),
-                                            image: DecorationImage(
-                                              image: AssetImage(
-                                                  product[index]["image"]),
-                                              fit: BoxFit.cover,
-                                            ))),
-                                    Container(
-                                      margin: EdgeInsets.only(top: 4),
-                                      child: Text(
-                                        product[index]["name"],
-                                        style: const TextStyle(
-                                          fontFamily: "Manrope",
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 14,
-                                          color: Color(0xff1E222B),
-                                        ),
+                            return Stack(children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => ProductDetail(
+                                        imagePath: product[index]
+                                            ["image"],
+                                        title: product[index]["name"],
+                                        price: product[index]["price"].toString(),
+                                        details: product[index]["details"],
+                                        reviews: product[index]["reviews"],
+                                        ratings: product[index]["ratings"], index: index,
                                       ),
                                     ),
-                                    const Text(
-                                      "Organic",
-                                      style: TextStyle(
-                                        fontFamily: "Manrope",
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 12,
-                                        color: Color(0xff616A7D),
-                                      ),
+                                  );
+                                },
+                                child: Container(
+                                    height: 300,
+                                    width: 150,
+                                    padding: const EdgeInsets.only(top: 4),
+                                    margin: const EdgeInsets.only(
+                                        top: 20,
+                                        bottom: 0,
+                                        left: 10,
+                                        right: 10),
+                                    clipBehavior: Clip.antiAlias,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(16),
                                     ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        CustomTextWidget(
-                                          yourtext: product[index]["price"]
-                                              .toString(),
-                                          fontweight: FontWeight.w700,
-                                          fontsize: 14,
-                                          fontColor: Colors.black,
+                                    child: Column(children: [
+                                      Container(
+                                          height: 170,
+                                          width: 200,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(16),
+                                              image: DecorationImage(
+                                                image: AssetImage(
+                                                    product[index]["image"]),
+                                                fit: BoxFit.cover,
+                                              ))),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 4),
+                                        child: Text(
+                                          product[index]["name"],
+                                          style: const TextStyle(
+                                            fontFamily: "Manrope",
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 14,
+                                            color: Color(0xff1E222B),
+                                          ),
                                         ),
-                                        FavIcon(
-                                          index: index,
-                                        ),
-                                        Spacer(),
-                                      ],
-                                    )
-                                  ])),
-                            );
+                                      ),
+                                      Row(
+                                        children: [
+                                          Container(
+                                            padding: EdgeInsets.only(left: 60),
+                                            child: CustomTextWidget(
+                                              yourtext: product[index]["price"]
+                                                  .toString(),
+                                              fontweight: FontWeight.w700,
+                                              fontsize: 14,
+                                              fontColor: Colors.black,
+                                            ),
+                                          ),
+                                          const CustomTextWidget(
+                                              yourtext: "\$",
+                                              fontweight: FontWeight.w700,
+                                              fontsize: 14,
+                                              fontColor: Colors.black),
+                                        ],
+                                      )
+                                    ])),
+                              ),
+                              Positioned(
+                                child: FavIcon(
+                                  index: index,
+                                ),
+                              )
+                            ]);
                           },
                         ),
                       ),
+                      Container(
+                        margin:
+                            const EdgeInsets.only(left: 10, top: 0, bottom: 0),
+                        child: const Align(
+                            alignment:
+                                Alignment.centerLeft, // Align text to the left
+                            child: CustomTextWidget(
+                              yourtext: "Hot in the Town",
+                              fontweight: FontWeight.w500,
+                              fontsize: 23,
+                              fontColor: Color(0xff1E222B),
+                            )),
+                      ),
                       SizedBox(
-                        height: 257,
+                        height: 270,
                         width: MediaQuery.of(context).size.width,
                         child: PageView.builder(
                           itemCount: product.length,
                           padEnds: false,
-                          pageSnapping: false,
-                          physics: const BouncingScrollPhysics(),
+                          //pageSnapping: false,
+                          // physics: const BouncingScrollPhysics(),
                           reverse: true,
                           controller: PageController(
-                            initialPage: 0,
-                            viewportFraction: 0.4,
+                            viewportFraction: 0.5,
                           ),
                           itemBuilder: (context, index) {
-                            return CustomCard(
-                              index: index,
-                            );
+                            return Stack(children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ProductDetail(
+                                              imagePath: product[index]
+                                                  ["image"],
+                                              title: product[index]["name"],
+                                              price: product[index]["price"].toString(),
+                                              details: product[index]
+                                                  ["details"],
+                                              reviews: product[index]
+                                                  ["reviews"],
+                                              ratings: product[index]
+                                                  ["ratings"], index: index,
+                                            )),
+                                  );
+                                },
+                                child: Container(
+                                    height: 300,
+                                    width: 150,
+                                    padding: const EdgeInsets.only(top: 4),
+                                    margin: const EdgeInsets.only(
+                                        top: 20,
+                                        bottom: 0,
+                                        left: 10,
+                                        right: 10),
+                                    clipBehavior: Clip.antiAlias,
+                                    decoration: BoxDecoration(
+                                      color: Colors.white,
+                                      borderRadius: BorderRadius.circular(16),
+                                    ),
+                                    child: Column(children: [
+                                      Container(
+                                          height: 170,
+                                          width: 200,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(16),
+                                              image: DecorationImage(
+                                                image: AssetImage(
+                                                    product[index]["image"]),
+                                                fit: BoxFit.cover,
+                                              ))),
+                                      Container(
+                                        margin: EdgeInsets.only(top: 4),
+                                        child: Text(
+                                          product[index]["name"],
+                                          style: const TextStyle(
+                                            fontFamily: "Manrope",
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 14,
+                                            color: Color(0xff1E222B),
+                                          ),
+                                        ),
+                                      ),
+                                      Row(
+                                        children: [
+                                          Container(
+                                            padding: EdgeInsets.only(left: 60),
+                                            child: CustomTextWidget(
+                                              yourtext: product[index]["price"]
+                                                  .toString(),
+                                              fontweight: FontWeight.w700,
+                                              fontsize: 14,
+                                              fontColor: Colors.black,
+                                            ),
+                                          ),
+                                          const CustomTextWidget(
+                                              yourtext: "\$",
+                                              fontweight: FontWeight.w700,
+                                              fontsize: 14,
+                                              fontColor: Colors.black),
+                                        ],
+                                      )
+                                    ])),
+                              ),
+                              Positioned(
+                                child: FavIcon(
+                                  index: index,
+                                ),
+                              )
+                            ]);
                           },
                         ),
                       ),
-                      GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const CartScreen()),
-                            );
-                          },
-                          child: Text("bye"))
                     ],
                   ),
                 ),
