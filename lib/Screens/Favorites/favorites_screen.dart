@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hijabista/Lists/CartItem/cartItem.dart';
 import 'package:hijabista/Lists/favoriteList.dart';
-import 'package:hijabista/Screens/Home_Page/home_screen.dart';
+
 import 'package:hijabista/Widget/BottomNavigationBar/bottom_navigation_bar.dart';
 import 'package:hijabista/Widget/add_to_cart/add_to_cart.dart';
 import 'package:hijabista/Widget/backButton/Back_Button.dart';

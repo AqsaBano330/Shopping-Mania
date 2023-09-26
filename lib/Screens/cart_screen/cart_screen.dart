@@ -3,7 +3,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hijabista/Lists/CartItem/cartItem.dart';
 import 'package:hijabista/Lists/productList/productList.dart';
 import 'package:hijabista/Screens/Address%20Screen/AddressScreen.dart';
-import 'package:hijabista/Screens/Home_Page/home_screen.dart';
 import 'package:hijabista/Widget/BottomNavigationBar/bottom_navigation_bar.dart';
 import 'package:hijabista/Widget/add_to_cart/add_to_cart.dart';
 import 'package:hijabista/Widget/backButton/Back_Button.dart';
@@ -35,7 +34,7 @@ class _CartScreenState extends State<CartScreen> {
         children: [
           Container(
             height: 110,
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -53,7 +52,7 @@ class _CartScreenState extends State<CartScreen> {
                         );
                       },
                       child: Container(
-                        child: CustomBackButtom(arrowColor: 'black'),
+                        child: const CustomBackButtom(arrowColor: 'black'),
                       ),
                     ),
                     Container(
@@ -100,10 +99,10 @@ class _CartScreenState extends State<CartScreen> {
                         ),
                         child: ListTile(
                           enabled: true,
-                          contentPadding: EdgeInsets.only(left: 20.0, right: 4,),
+                          contentPadding: const EdgeInsets.only(left: 20.0, right: 4,),
                           leading: Container(
-                            margin: EdgeInsets.only(right: 0),
-                            padding: EdgeInsets.only(right: 8.0, top:10 ,left:2),
+                            margin: const EdgeInsets.only(right: 0),
+                            padding: const EdgeInsets.only(right: 8.0, top:10 ,left:2),
                             
                             child: InkWell(
                               onTap: () {
@@ -135,7 +134,7 @@ class _CartScreenState extends State<CartScreen> {
                                 ),
                                 child: Center(
                                   child: CartItem[index]["isChecked"]
-                                      ? Icon(
+                                      ? const Icon(
                                           Icons.check,
                                           size: 18,
                                           color: Colors.white,
@@ -148,8 +147,8 @@ class _CartScreenState extends State<CartScreen> {
                           title: Row(
                             children: [
                               Container(
-                                padding: EdgeInsets.only(left: 0),
-                                margin: EdgeInsets.only(left: 0),
+                                padding: const EdgeInsets.only(left: 0),
+                                margin: const EdgeInsets.only(left: 0),
                                 child: Image.asset(
                                   CartItem[index]["image"],
                                   width: 45.0,
@@ -157,24 +156,24 @@ class _CartScreenState extends State<CartScreen> {
                                   fit: BoxFit.cover,
                                 ),
                               ),
-                              SizedBox(width: 3.0),
+                              const SizedBox(width: 3.0),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Container(
-                                    padding: EdgeInsets.only(top:15),
+                                    padding: const EdgeInsets.only(top:15),
                                     child: Text(
                                       CartItem[index]["name"],
-                                      style: TextStyle(fontSize: 14),
+                                      style: const TextStyle(fontSize: 14),
                                     ),
                                   ),
                                   Row(
                                     children: [
                                       Text(
                                         CartItem[index]["price"].toString(),
-                                        style: TextStyle(fontSize: 12),
+                                        style: const TextStyle(fontSize: 12),
                                       ),
-                                      Text("\$", style: TextStyle(fontSize: 12)),
+                                      const Text("\$", style: TextStyle(fontSize: 12)),
                                     ],
                                   )
                                 ],
@@ -187,7 +186,7 @@ class _CartScreenState extends State<CartScreen> {
                               spacing: 1.0,
                               children: [
                                 IconButton(
-                                  icon: Icon(Icons.add),
+                                  icon: const Icon(Icons.add),
                                   onPressed: () {
                                     setState(() {
                                       if (CartItem[index]["itemamount"] ==
@@ -214,14 +213,14 @@ class _CartScreenState extends State<CartScreen> {
                                   },
                                 ),
                                 Container(
-                                  padding: EdgeInsets.all(8.0),
+                                  padding: const EdgeInsets.all(8.0),
                                   child: Text(
                                     CartItem[index]["itemamount"].toString(),
-                                    style: TextStyle(color: Colors.black),
+                                    style: const TextStyle(color: Colors.black),
                                   ),
                                 ),
                                 IconButton(
-                                  icon: Icon(Icons.delete),
+                                  icon: const Icon(Icons.delete),
                                   onPressed: () {
                                     setState(() {
                                       CartItem[index]["itemamount"]--;
@@ -260,21 +259,21 @@ class _CartScreenState extends State<CartScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(left: 16.0,top:20, bottom:10),
+                    padding: const EdgeInsets.only(left: 16.0,top:20, bottom:10),
                     child: Text(
-                      "Shopping Amount:  ${TotalPrice} ",
+                      "Shopping Amount: ${TotalPrice} ",
                       style: TextStyle(color: Colors.grey[600]),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 16.0,top:10, bottom:10),
+                    padding: const EdgeInsets.only(left: 16.0,top:10, bottom:10),
                     child: Text(
                       "Discount: -${CountTotalAmount(TotalPrice, DeliveryCharges)}",
                       style: TextStyle(color: Colors.grey[600]),
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 16.0,top:10, bottom:10),
+                    padding: const EdgeInsets.only(left: 16.0,top:10, bottom:10),
                     child: Text(
                       TotalPrice == 0
                           ? "Delivery Charges: 0"
@@ -283,7 +282,7 @@ class _CartScreenState extends State<CartScreen> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.only(left: 16.0,top:10, bottom:30),
+                    padding:const EdgeInsets.only(left: 16.0,top:10, bottom:30),
                     child: Text(
                       TotalPrice == 0
                           ? "Total Price: 0"
@@ -296,7 +295,7 @@ class _CartScreenState extends State<CartScreen> {
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           backgroundColor: AppColors.Peach,
-                          minimumSize: Size(230, 50),
+                          minimumSize: const Size(230, 50),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20.0),
                           ),

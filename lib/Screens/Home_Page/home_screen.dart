@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hijabista/Lists/CartItem/cartItem.dart';
 import 'package:hijabista/Lists/productList/productList.dart';
 import 'package:hijabista/Screens/Favorites/fav_icon.dart';
-import 'package:hijabista/Screens/cart_screen/cart_screen.dart';
-import 'package:hijabista/Widget/Cards/Homecards.dart';
 import 'package:hijabista/Widget/CarousalSlider/Carousal_slider.dart';
 import 'package:hijabista/Widget/Search%20Bar/search_bar.dart';
 import 'package:hijabista/Widget/add_to_cart/add_to_cart.dart';

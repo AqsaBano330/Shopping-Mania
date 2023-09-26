@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:hijabista/Lists/CartItem/cartItem.dart';
+
 import 'package:hijabista/Screens/Address%20Screen/AddressScreen.dart';
 import 'package:hijabista/Screens/ContinueShoppingScreen.dart';
-import 'package:hijabista/Widget/add_to_cart/add_to_cart.dart';
+
 import 'package:hijabista/Widget/backButton/Back_Button.dart';
 import 'package:hijabista/Widget/color/colors.dart';
 import 'package:hijabista/Widget/text/text.dart';
