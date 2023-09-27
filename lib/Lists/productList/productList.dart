@@ -94,5 +94,6 @@ List homeproducts = [
      "display Images": ["assets/images/hoodie1.jpg","assets/images/hoodie1.jpg""assets/images/hoodie1.jpg"],
      "ratings":3.0
 
-  }
+  },
+  
 ];

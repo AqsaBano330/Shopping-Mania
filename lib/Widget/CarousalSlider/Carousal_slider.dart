@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 List<String> CarousalimageList = [
-  "assets/images/Carousalimages/Ad_Banner1.jpg",
-  "assets/images/Carousalimages/Ad_Banner2.jpg",
-  "assets/images/Carousalimages/Ad_Banner3.jpg",
-  "assets/images/Carousalimages/Ad_Banner4.jpg",
-  "assets/images/Carousalimages/Ad_Banner5.jpg",
-  "assets/images/Carousalimages/Ad_Banner6.jpg",
-  "assets/images/Carousalimages/Ad_Banner7.jpg"
+  "assets/images/winter sale/winter_sale2.PNG",
+  "assets/images/winter sale/winter_sale4.jpg",
+  "assets/images/winter sale/winter_sale6.jpg",
+  "assets/images/winter sale/winter_sale1.jpg",
+  "assets/images/winter sale/winter_sale2.jfif",
+  "assets/images/winter sale/winter_sale5.jpg",
+  "assets/images/winter sale/winter_sale3.PNG",
+  "assets/images/winter sale/winter_sale7.jfif",
+  "assets/images/winter sale/winter_sale8.jpg",
 ];
 
 class CarousalSlider extends StatefulWidget {

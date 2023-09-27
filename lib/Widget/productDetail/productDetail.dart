@@ -1,4 +1,3 @@
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -19,7 +18,8 @@ class ProductDetail extends StatefulWidget {
     required this.price,
     required this.details,
     required this.reviews,
-    required this.ratings, required this.index,
+    required this.ratings,
+    required this.index,
   });
 
   final String imagePath;
