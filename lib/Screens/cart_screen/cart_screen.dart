@@ -3,7 +3,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hijabista/Lists/CartItem/cartItem.dart';
 import 'package:hijabista/Lists/productList/productList.dart';
 import 'package:hijabista/Screens/Address%20Screen/AddressScreen.dart';
-import 'package:hijabista/Screens/Home_Page/home_screen.dart';
+import 'package:hijabista/Widget/BottomNavigationBar/bottom_navigation_bar.dart';
 import 'package:hijabista/Widget/add_to_cart/add_to_cart.dart';
 import 'package:hijabista/Widget/backButton/Back_Button.dart';
 import 'package:hijabista/Widget/color/colors.dart';
@@ -47,7 +47,7 @@ class _CartScreenState extends State<CartScreen> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const HomePage(),
+                            builder: (context) => const CurveBar(),
                           ),
                         );
                       },
@@ -215,7 +215,7 @@ class _CartScreenState extends State<CartScreen> {
                                     onPressed: () {
                                       setState(() {
                                         if (CartItem[index]["itemamount"] ==
-                                            product[index]["Stock"]) {
+                                            homeproducts[index]["Stock"]) {
                                           showCustomToast("Out of Stock",
                                               Colors.black.withOpacity(0.7));
                                         } else {

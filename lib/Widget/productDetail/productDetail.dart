@@ -67,7 +67,7 @@ class _ProductDetailState extends State<ProductDetail> {
               height: 300,
               width: double.infinity,
               child: CarouselSlider(
-                items: product.map((productItem) {
+                items: homeproducts.map((productItem) {
                   return ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: Image.asset(
@@ -91,7 +91,7 @@ class _ProductDetailState extends State<ProductDetail> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: product.asMap().entries.map((entry) {
+              children: homeproducts.asMap().entries.map((entry) {
                 return GestureDetector(
                   onTap: () => _controller.animateToPage(entry.key),
                   child: Container(
@@ -252,7 +252,7 @@ class _ProductDetailState extends State<ProductDetail> {
                       });
                     } else {
                       setState(() {
-                        CartItem.add(product[widget.index]);
+                        CartItem.add(homeproducts[widget.index]);
                       });
                     }
 

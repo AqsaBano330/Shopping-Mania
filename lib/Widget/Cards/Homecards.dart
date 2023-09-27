@@ -39,13 +39,13 @@ class _CustomCardState extends State<CustomCard> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(16),
                   image: DecorationImage(
-                    image: AssetImage(product[widget.index]["image"]),
+                    image: AssetImage(homeproducts[widget.index]["image"]),
                     fit: BoxFit.cover,
                   ))),
           Container(
             margin: EdgeInsets.only(top: 4),
             child: Text(
-              product[widget.index]["name"],
+              homeproducts[widget.index]["name"],
               style: const TextStyle(
                 fontFamily: "Manrope",
                 fontWeight: FontWeight.w600,
@@ -67,7 +67,7 @@ class _CustomCardState extends State<CustomCard> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomTextWidget(
-                yourtext: product[widget.index]["price"].toString(),
+                yourtext: homeproducts[widget.index]["price"].toString(),
                 fontweight: FontWeight.w700,
                 fontsize: 14,
                 fontColor: Colors.black,
@@ -99,7 +99,7 @@ class _CustomCardState extends State<CustomCard> {
                     );
 setState(() {
 
-  CartItem.add(product[widget.index]);
+  CartItem.add(homeproducts[widget.index]);
                     AddToCart(CartItem:CartItem, cartColor: "white",);
   
 });

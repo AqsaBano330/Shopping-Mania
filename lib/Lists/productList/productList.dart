@@ -1,4 +1,4 @@
-List product = [
+List homeproducts = [
   { "image":"assets/images/hoodie1.jpg",
     "name" : "Color Hoodie" ,
     "price": 45,

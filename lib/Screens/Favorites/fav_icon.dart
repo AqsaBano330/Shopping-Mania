@@ -24,19 +24,19 @@ class _FavIconState extends State<FavIcon> {
         ),
         Positioned(
           child: IconButton(
-            color: product[widget.index]["isFav"] == true
+            color: homeproducts[widget.index]["isFav"] == true
                 ? Colors.red 
                 : Colors.grey,
             onPressed: () {
               setState(() {
                 
-                product[widget.index]["isFav"] =
-                    !product[widget.index]["isFav"];
+                homeproducts[widget.index]["isFav"] =
+                    homeproducts[widget.index]["isFav"];
                 
-                if (product[widget.index]["isFav"]) {
-                  FavList.add(product[widget.index]);
+                if (homeproducts[widget.index]["isFav"]) {
+                  FavList.add(homeproducts[widget.index]);
                 } else {
-                  FavList.remove(product[widget.index]);
+                  FavList.remove(homeproducts[widget.index]);
                 }
               });
             },

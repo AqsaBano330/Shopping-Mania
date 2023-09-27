@@ -21,6 +21,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.white,
         body: SafeArea(
@@ -96,7 +97,7 @@ class _HomePageState extends State<HomePage> {
                         height: 270,
                         width: MediaQuery.of(context).size.width,
                         child: PageView.builder(
-                          itemCount: product.length,
+                          itemCount: homeproducts.length,
                           padEnds: false,
                           //pageSnapping: false,
                           // physics: const BouncingScrollPhysics(),
@@ -114,12 +115,12 @@ class _HomePageState extends State<HomePage> {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>  ProductDetail(
-          imagePath: product[index]["image"],
-          title: product[index]["name"],
-          price: product[index]["price"].toString(),
-          details: product[index]["details"],
-          reviews: product[index]["reviews"],
-          ratings: product[index]["ratings"],
+          imagePath: homeproducts[index]["image"],
+          title: homeproducts[index]["name"],
+          price: homeproducts[index]["price"].toString(),
+          details: homeproducts[index]["details"],
+          reviews: homeproducts[index]["reviews"],
+          ratings: homeproducts[index]["ratings"],
           index: index,
         ),
       ),
@@ -148,7 +149,7 @@ class _HomePageState extends State<HomePage> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
             image: DecorationImage(
-              image: AssetImage(product[index]["image"]),
+              image: AssetImage(homeproducts[index]["image"]),
               fit: BoxFit.cover,
             ),
           ),
@@ -156,7 +157,7 @@ class _HomePageState extends State<HomePage> {
         Container(
           margin: EdgeInsets.only(top: 4),
           child: Text(
-            product[index]["name"],
+            homeproducts[index]["name"],
             style: const TextStyle(
               fontFamily: "Manrope",
               fontWeight: FontWeight.w600,
@@ -170,7 +171,7 @@ class _HomePageState extends State<HomePage> {
             Container(
               padding: EdgeInsets.only(left: 60),
               child: CustomTextWidget(
-                yourtext: product[index]["price"].toString(),
+                yourtext: homeproducts[index]["price"].toString(),
                 fontweight: FontWeight.w700,
                 fontsize: 14,
                 fontColor: Colors.black,
@@ -215,7 +216,7 @@ class _HomePageState extends State<HomePage> {
                         height: 270,
                         width: MediaQuery.of(context).size.width,
                         child: PageView.builder(
-                          itemCount: product.length,
+                          itemCount: homeproducts.length,
                           padEnds: false,
                           //pageSnapping: false,
                           // physics: const BouncingScrollPhysics(),
@@ -231,16 +232,16 @@ class _HomePageState extends State<HomePage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) => ProductDetail(
-                                              imagePath: product[index]
+                                              imagePath: homeproducts[index]
                                                   ["image"],
-                                              title: product[index]["name"],
-                                              price: product[index]["price"]
+                                              title: homeproducts[index]["name"],
+                                              price: homeproducts[index]["price"]
                                                   .toString(),
-                                              details: product[index]
+                                              details: homeproducts[index]
                                                   ["details"],
-                                              reviews: product[index]
+                                              reviews: homeproducts[index]
                                                   ["reviews"],
-                                              ratings: product[index]
+                                              ratings: homeproducts[index]
                                                   ["ratings"],
                                               index: index,
                                             )),
@@ -269,13 +270,13 @@ class _HomePageState extends State<HomePage> {
                                                   BorderRadius.circular(16),
                                               image: DecorationImage(
                                                 image: AssetImage(
-                                                    product[index]["image"]),
+                                                    homeproducts[index]["image"]),
                                                 fit: BoxFit.cover,
                                               ))),
                                       Container(
                                         margin: EdgeInsets.only(top: 4),
                                         child: Text(
-                                          product[index]["name"],
+                                          homeproducts[index]["name"],
                                           style: const TextStyle(
                                             fontFamily: "Manrope",
                                             fontWeight: FontWeight.w600,
@@ -289,7 +290,7 @@ class _HomePageState extends State<HomePage> {
                                           Container(
                                             padding: EdgeInsets.only(left: 60),
                                             child: CustomTextWidget(
-                                              yourtext: product[index]["price"]
+                                              yourtext: homeproducts[index]["price"]
                                                   .toString(),
                                               fontweight: FontWeight.w700,
                                               fontsize: 14,
