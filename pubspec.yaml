@@ -47,6 +47,8 @@ dependencies:
   provider: ^6.0.5
   flutter_rating_bar: ^4.0.1
   fluttertoast: ^8.2.2
+  url_launcher: ^6.1.14
+  geocoding: ^2.1.0
   
 
 dev_dependencies:

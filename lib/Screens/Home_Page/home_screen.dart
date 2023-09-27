@@ -107,82 +107,88 @@ class _HomePageState extends State<HomePage> {
                           itemBuilder: (context, index) {
                             return Stack(children: [
                               GestureDetector(
-                                onTap: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => ProductDetail(
-                                        imagePath: product[index]["image"],
-                                        title: product[index]["name"],
-                                        price:
-                                            product[index]["price"].toString(),
-                                        details: product[index]["details"],
-                                        reviews: product[index]["reviews"],
-                                        ratings: product[index]["ratings"],
-                                        index: index,
-                                      ),
-                                    ),
-                                  );
-                                },
-                                child: Container(
-                                    height: 300,
-                                    width: 150,
-                                    padding: const EdgeInsets.only(top: 4),
-                                    margin: const EdgeInsets.only(
-                                        top: 20,
-                                        bottom: 0,
-                                        left: 10,
-                                        right: 10),
-                                    clipBehavior: Clip.antiAlias,
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(16),
-                                    ),
-                                    child: Column(children: [
-                                      Container(
-                                          height: 170,
-                                          width: 200,
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(16),
-                                              image: DecorationImage(
-                                                image: AssetImage(
-                                                    product[index]["image"]),
-                                                fit: BoxFit.cover,
-                                              ))),
-                                      Container(
-                                        margin: EdgeInsets.only(top: 4),
-                                        child: Text(
-                                          product[index]["name"],
-                                          style: const TextStyle(
-                                            fontFamily: "Manrope",
-                                            fontWeight: FontWeight.w600,
-                                            fontSize: 14,
-                                            color: Color(0xff1E222B),
-                                          ),
-                                        ),
-                                      ),
-                                      Row(
-                                        children: [
-                                          Container(
-                                            padding: EdgeInsets.only(left: 60),
-                                            child: CustomTextWidget(
-                                              yourtext: product[index]["price"]
-                                                  .toString(),
-                                              fontweight: FontWeight.w700,
-                                              fontsize: 14,
-                                              fontColor: Colors.black,
-                                            ),
-                                          ),
-                                          const CustomTextWidget(
-                                              yourtext: "\$",
-                                              fontweight: FontWeight.w700,
-                                              fontsize: 14,
-                                              fontColor: Colors.black),
-                                        ],
-                                      )
-                                    ])),
-                              ),
+                          onTap: () {
+                          
+                            
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>  ProductDetail(
+          imagePath: product[index]["image"],
+          title: product[index]["name"],
+          price: product[index]["price"].toString(),
+          details: product[index]["details"],
+          reviews: product[index]["reviews"],
+          ratings: product[index]["ratings"],
+          index: index,
+        ),
+      ),
+    );
+  },
+  child: Container(
+    height: 300,
+    width: 150,
+    padding: const EdgeInsets.only(top: 4),
+    margin: const EdgeInsets.only(
+      top: 20,
+      bottom: 0,
+      left: 10,
+      right: 10,
+    ),
+    clipBehavior: Clip.antiAlias,
+    decoration: BoxDecoration(
+      color: Colors.white,
+      borderRadius: BorderRadius.circular(16),
+    ),
+    child: Column(
+      children: [
+        Container(
+          height: 170,
+          width: 200,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            image: DecorationImage(
+              image: AssetImage(product[index]["image"]),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.only(top: 4),
+          child: Text(
+            product[index]["name"],
+            style: const TextStyle(
+              fontFamily: "Manrope",
+              fontWeight: FontWeight.w600,
+              fontSize: 14,
+              color: Color(0xff1E222B),
+            ),
+          ),
+        ),
+        Row(
+          children: [
+            Container(
+              padding: EdgeInsets.only(left: 60),
+              child: CustomTextWidget(
+                yourtext: product[index]["price"].toString(),
+                fontweight: FontWeight.w700,
+                fontsize: 14,
+                fontColor: Colors.black,
+              ),
+            ),
+            const CustomTextWidget(
+              yourtext: "\$",
+              fontweight: FontWeight.w700,
+              fontsize: 14,
+              fontColor: Colors.black,
+            ),
+          ],
+        ),
+      ],
+    ),
+  ),
+),
+
                               Positioned(
                                 child: FavIcon(
                                   index: index,
