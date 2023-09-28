@@ -26,7 +26,9 @@ class _AddressScreenState extends State<AddressScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      
       child: Scaffold(
+        
           body: Column(
         children: [
           Container(height: 30),
