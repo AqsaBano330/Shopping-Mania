@@ -1,18 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-List<String> CarousalimageList = [
-  "assets/images/winter sale/winter_sale2.PNG",
-  "assets/images/winter sale/winter_sale4.jpg",
-  "assets/images/winter sale/winter_sale6.jpg",
-  "assets/images/winter sale/winter_sale1.jpg",
-  "assets/images/winter sale/winter_sale2.jfif",
-  "assets/images/winter sale/winter_sale5.jpg",
-  "assets/images/winter sale/winter_sale3.PNG",
-  "assets/images/winter sale/winter_sale7.jfif",
-  "assets/images/winter sale/winter_sale8.jpg",
-];
-
 class CarousalSlider extends StatefulWidget {
   @override
   State<CarousalSlider> createState() => _CarousalSliderState();
@@ -22,12 +10,24 @@ class _CarousalSliderState extends State<CarousalSlider> {
   int _current = 0;
   final CarouselController _controller = CarouselController();
 
+  List<String> carouselImageList = [
+    "assets/images/winter sale/winter_sale2.PNG",
+    "assets/images/winter sale/winter_sale4.jpg",
+    "assets/images/winter sale/winter_sale6.jpg",
+    "assets/images/winter sale/winter_sale1.jpg",
+    "assets/images/winter sale/winter_sale2.jfif",
+    "assets/images/winter sale/winter_sale5.jpg",
+    "assets/images/winter sale/winter_sale3.PNG",
+    "assets/images/winter sale/winter_sale7.jfif",
+    "assets/images/winter sale/winter_sale8.jpg",
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         CarouselSlider(
-          items: CarousalimageList.map((imagePath) {
+          items: carouselImageList.map((imagePath) {
             return ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.asset(
@@ -53,7 +53,7 @@ class _CarousalSliderState extends State<CarousalSlider> {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: CarousalimageList.asMap().entries.map((entry) {
+          children: carouselImageList.asMap().entries.map((entry) {
             return GestureDetector(
               onTap: () => _controller.animateToPage(entry.key),
               child: Container(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hijabista/Lists/favoriteList.dart';
 import 'package:hijabista/Lists/productList/productList.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:hijabista/Widget/color/colors.dart';
 
 class FavIcon extends StatefulWidget {
   const FavIcon({Key? key, required this.index});
@@ -18,14 +20,13 @@ class _FavIconState extends State<FavIcon> {
       alignment: Alignment.center, // Center alignment
       children: [
         CircleAvatar(
-          radius: 1,
+          radius: 0,
           backgroundColor: Colors.transparent,
         ),
         Positioned(
           child: IconButton(
-            color: homeproducts[widget.index]["isFav"] == true
-                ? Colors.red
-                : Colors.grey,
+            
+            
             onPressed: () {
               setState(() {
                 // homeproducts[widget.index]["isFav"] =
@@ -43,9 +44,11 @@ class _FavIconState extends State<FavIcon> {
                 }
               });
             },
-            icon: Icon(
-              Icons.favorite,
-            ),
+            icon: FaIcon(FontAwesomeIcons.solidHeart,
+            size: 20,
+            color: homeproducts[widget.index]["isFav"] == true
+                ? AppColors.Peach
+                : Colors.grey,)
           ),
         ),
       ],
