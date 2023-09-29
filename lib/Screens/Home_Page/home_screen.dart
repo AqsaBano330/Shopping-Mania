@@ -61,8 +61,35 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 16.0),
-                  const Center(child: CustomSearchBar()),
+                  const SizedBox(height: 14.0),
+                  Center(child: 
+                  
+                  ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Color(0xfffcd0b8),
+        minimumSize: Size(15,45 ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(25.0),
+        ),
+      ),
+      onPressed: () {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => const SearchBarScreen()),
+        );
+      },
+                  
+                  
+                  
+                  
+                   child:  Row(children: [
+                    Icon(Icons.search, color: Colors.grey[600],),
+                    Container(padding: EdgeInsets.only(left: 10),
+                      child: Text( "Search Anything",style:TextStyle(
+                        fontWeight: FontWeight.w400, fontSize: 15,color: Colors.grey[600],
+                      )  ),
+                    )
+                  ],))),
                 ],
               ),
             ),

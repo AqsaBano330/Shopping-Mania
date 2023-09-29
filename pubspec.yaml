@@ -122,6 +122,10 @@ flutter:
     - assets/images/winter sale/winter_sale6.jpg
     - assets/images/winter sale/winter_sale7.jfif
     - assets/images/winter sale/winter_sale8.jpg
+    - assets/images/50offbanner.PNG
+    - assets/images/performance_hoodie/perforamce_hoodie_cover.PNG
+    - assets/images/pulloverhoodies/pulloverhoodie_cover.jpg
+    - assets/images/sherpahoodie/sherpa_hoodie_cover.jpg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 

@@ -3,7 +3,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hijabista/Lists/CartItem/cartItem.dart';
 import 'package:hijabista/Lists/productList/productList.dart';
 import 'package:hijabista/Screens/Address%20Screen/AddressScreen.dart';
-import 'package:hijabista/Widget/BottomNavigationBar/bottom_navigation_bar.dart';
+
 import 'package:hijabista/Widget/add_to_cart/add_to_cart.dart';
 import 'package:hijabista/Widget/backButton/Back_Button.dart';
 import 'package:hijabista/Widget/color/colors.dart';
@@ -43,18 +43,11 @@ class _CartScreenState extends State<CartScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const CurveBar(),
-                          ),
-                        );
-                      },
-                      child: Container(
-                        child: const CustomBackButtom(arrowColor: 'black'),
+                        onTap: () {
+                          Navigator.pop(context); // Add this to go back
+                        },
+                        child: CustomBackButtom(arrowColor: "black")
                       ),
-                    ),
                     Container(
                       child: CustomTextWidget(
                         yourtext: "Cart",

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hijabista/Lists/CartItem/cartItem.dart';
 import 'package:hijabista/Lists/favoriteList.dart';
-
-import 'package:hijabista/Widget/BottomNavigationBar/bottom_navigation_bar.dart';
 import 'package:hijabista/Widget/add_to_cart/add_to_cart.dart';
 import 'package:hijabista/Widget/backButton/Back_Button.dart';
 import 'package:hijabista/Widget/color/colors.dart';
@@ -24,26 +22,21 @@ class _FavoritesPageState extends State<FavoritesPage> {
           children: [
             Container(
               height: 110,
-              padding: EdgeInsets.all(10.0),
+              padding: EdgeInsets.only(left:20,right:20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(height: 30),
+                  Container(height: 15),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      GestureDetector(
+
+
+ GestureDetector(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const CurveBar(),
-                            ),
-                          );
+                          Navigator.pop(context); // Add this to go back
                         },
-                        child: Container(
-                          child: CustomBackButtom(arrowColor: 'black'),
-                        ),
+                        child: CustomBackButtom(arrowColor: "black")
                       ),
                       Container(
                         child: CustomTextWidget(

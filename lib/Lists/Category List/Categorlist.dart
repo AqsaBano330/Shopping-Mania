@@ -1,5 +1,5 @@
 // Hoodie
-List Hoodie = [{"name":"pullover"},{"name":"performance"},{"name":"sherpa"}];
+List Hoodie = [{"name":"pullover", "image":"assets/images/pulloverhoodies/pulloverhoodie_cover.jpg"},{"name":"performance","image":"assets/images/performance_hoodie/perforamce_hoodie_cover.PNG"},{"name":"sherpa","image":"assets/images/sherpahoodie/sherpa_hoodie_cover.jpg"}];
 List PullOverHoodie = [{}];
 List PerformaceHoodie = [{}];
 List SherpaHooodie = [{}];
