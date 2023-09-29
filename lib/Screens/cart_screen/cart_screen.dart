@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:hijabista/Lists/CartItem/cartItem.dart';
-import 'package:hijabista/Lists/productList/productList.dart';
 import 'package:hijabista/Screens/Address%20Screen/AddressScreen.dart';
-
 import 'package:hijabista/Widget/add_to_cart/add_to_cart.dart';
 import 'package:hijabista/Widget/backButton/Back_Button.dart';
 import 'package:hijabista/Widget/color/colors.dart';
@@ -46,8 +44,7 @@ class _CartScreenState extends State<CartScreen> {
                         onTap: () {
                           Navigator.pop(context); // Add this to go back
                         },
-                        child: CustomBackButtom(arrowColor: "black")
-                      ),
+                        child: CustomBackButtom(arrowColor: "black")),
                     Container(
                       child: CustomTextWidget(
                         yourtext: "Cart",
@@ -80,7 +77,7 @@ class _CartScreenState extends State<CartScreen> {
                     itemCount: CartItem.length,
                     itemBuilder: (context, index) {
                       final Item = CartItem[index];
-                      String deletedItem=CartItem[index]["name"];
+                      String deletedItem = CartItem[index]["name"];
                       return Dismissible(
                         key: Key(Item["name"].toString()),
                         background: Container(
@@ -89,15 +86,12 @@ class _CartScreenState extends State<CartScreen> {
                                 child: Icon(Icons.delete)),
                             color: Colors.red),
                         onDismissed: (direction) {
-                          
                           setState(() {
                             CartItem.removeAt(index);
                           });
 
-                        
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                              content: Text(
-                                  '$deletedItem is deleted')));
+                              content: Text('$deletedItem is deleted')));
                         },
                         child: Container(
                           height: 70,
@@ -105,9 +99,8 @@ class _CartScreenState extends State<CartScreen> {
                             color: Colors.white,
                             border: Border(
                               bottom: BorderSide(
-                                color: AppColors
-                                    .Peach, 
-                                width: 1.0, 
+                                color: AppColors.Peach,
+                                width: 1.0,
                               ),
                             ),
                           ),
@@ -207,8 +200,11 @@ class _CartScreenState extends State<CartScreen> {
                                     icon: const Icon(Icons.add),
                                     onPressed: () {
                                       setState(() {
+                                        print(CartItem[index]["itemamount"]);
+                                         print(CartItem[index]["stock"]);
+
                                         if (CartItem[index]["itemamount"] ==
-                                            homeproducts[index]["Stock"]) {
+                                            CartItem[index]["stock"]){
                                           showCustomToast("Out of Stock",
                                               Colors.black.withOpacity(0.7));
                                         } else {

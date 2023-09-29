@@ -119,7 +119,7 @@ class _HomePageState extends State<HomePage> {
                       height: 270,
                       width: MediaQuery.of(context).size.width,
                       child: PageView.builder(
-                        itemCount: homeproducts.length,
+                        itemCount: allproducts.length,
                         padEnds: false,
                         //pageSnapping: false,
                         // physics: const BouncingScrollPhysics(),
@@ -135,13 +135,13 @@ class _HomePageState extends State<HomePage> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => ProductDetail(
-                                      imagePath: homeproducts[index]["image"],
-                                      title: homeproducts[index]["name"],
-                                      price: homeproducts[index]["price"]
+                                      imagePath: allproducts[index]["image"],
+                                      title: allproducts[index]["name"],
+                                      price: allproducts[index]["price"]
                                           .toString(),
-                                      details: homeproducts[index]["details"],
-                                      reviews: homeproducts[index]["reviews"],
-                                      ratings: homeproducts[index]["ratings"],
+                                      details: allproducts[index]["details"],
+                                      reviews: allproducts[index]["reviews"],
+                                      ratings: allproducts[index]["ratings"],
                                       index: index,
                                     ),
                                   ),
@@ -171,7 +171,7 @@ class _HomePageState extends State<HomePage> {
                                         borderRadius: BorderRadius.circular(16),
                                         image: DecorationImage(
                                           image: AssetImage(
-                                              homeproducts[index]["image"]),
+                                              allproducts[index]["image"]),
                                           fit: BoxFit.cover,
                                         ),
                                       ),
@@ -179,7 +179,7 @@ class _HomePageState extends State<HomePage> {
                                     Container(
                                       margin: EdgeInsets.only(top: 4),
                                       child: Text(
-                                        homeproducts[index]["name"],
+                                        allproducts[index]["name"],
                                         style: const TextStyle(
                                           fontFamily: "Manrope",
                                           fontWeight: FontWeight.w600,
@@ -193,7 +193,7 @@ class _HomePageState extends State<HomePage> {
                                         Container(
                                           padding: EdgeInsets.only(left: 60),
                                           child: CustomTextWidget(
-                                            yourtext: homeproducts[index]
+                                            yourtext: allproducts[index]
                                                     ["price"]
                                                 .toString(),
                                             fontweight: FontWeight.w700,
@@ -239,7 +239,7 @@ class _HomePageState extends State<HomePage> {
                       height: 270,
                       width: MediaQuery.of(context).size.width,
                       child: PageView.builder(
-                        itemCount: homeproducts.length,
+                        itemCount: allproducts.length,
                         padEnds: false,
                         //pageSnapping: false,
                         // physics: const BouncingScrollPhysics(),
@@ -255,16 +255,16 @@ class _HomePageState extends State<HomePage> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => ProductDetail(
-                                            imagePath: homeproducts[index]
+                                            imagePath: allproducts[index]
                                                 ["image"],
-                                            title: homeproducts[index]["name"],
-                                            price: homeproducts[index]["price"]
+                                            title: allproducts[index]["name"],
+                                            price: allproducts[index]["price"]
                                                 .toString(),
-                                            details: homeproducts[index]
+                                            details: allproducts[index]
                                                 ["details"],
-                                            reviews: homeproducts[index]
+                                            reviews: allproducts[index]
                                                 ["reviews"],
-                                            ratings: homeproducts[index]
+                                            ratings: allproducts[index]
                                                 ["ratings"],
                                             index: index,
                                           )),
@@ -290,13 +290,13 @@ class _HomePageState extends State<HomePage> {
                                                 BorderRadius.circular(16),
                                             image: DecorationImage(
                                               image: AssetImage(
-                                                  homeproducts[index]["image"]),
+                                                  allproducts[index]["image"]),
                                               fit: BoxFit.cover,
                                             ))),
                                     Container(
                                       margin: EdgeInsets.only(top: 4),
                                       child: Text(
-                                        homeproducts[index]["name"],
+                                        allproducts[index]["name"],
                                         style: const TextStyle(
                                           fontFamily: "Manrope",
                                           fontWeight: FontWeight.w600,
@@ -310,7 +310,7 @@ class _HomePageState extends State<HomePage> {
                                         Container(
                                           padding: EdgeInsets.only(left: 60),
                                           child: CustomTextWidget(
-                                            yourtext: homeproducts[index]
+                                            yourtext:allproducts[index]
                                                     ["price"]
                                                 .toString(),
                                             fontweight: FontWeight.w700,

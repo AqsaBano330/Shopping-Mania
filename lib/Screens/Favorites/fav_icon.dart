@@ -32,21 +32,21 @@ class _FavIconState extends State<FavIcon> {
                 // homeproducts[widget.index]["isFav"] =
                 //     homeproducts[widget.index]["isFav"];
 
-                if (homeproducts[widget.index]["isFav"] == true) {
-                  FavList.remove(homeproducts[widget.index]);
-                  homeproducts[widget.index]["isFav"] = false;
+                if (allproducts[widget.index]["isFav"] == true) {
+                  FavList.remove(allproducts[widget.index]);
+                  allproducts[widget.index]["isFav"] = false;
 
 
                 } else {
-                  FavList.add(homeproducts[widget.index]);
-                  homeproducts[widget.index]["isFav"] = true;
+                  FavList.add(allproducts[widget.index]);
+                  allproducts[widget.index]["isFav"] = true;
                   
                 }
               });
             },
             icon: FaIcon(FontAwesomeIcons.solidHeart,
             size: 20,
-            color: homeproducts[widget.index]["isFav"] == true
+            color: allproducts[widget.index]["isFav"] == true
                 ? AppColors.Peach
                 : Colors.grey,)
           ),
