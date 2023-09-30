@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hijabista/Lists/Category%20List/Categorlist.dart';
+import 'package:hijabista/Widget/color/colors.dart';
+import 'package:hijabista/Widget/text/text.dart';
 
 class SweatShirtScreen extends StatefulWidget {
   const SweatShirtScreen({super.key});
@@ -11,7 +13,8 @@ class SweatShirtScreen extends StatefulWidget {
 class _SweatShirtScreenState extends State<SweatShirtScreen> {
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(backgroundColor: Colors.white,
+    return  Scaffold(
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           Container(
@@ -31,9 +34,7 @@ class _SweatShirtScreenState extends State<SweatShirtScreen> {
               ),
               itemBuilder: (context, index) {
                 return Container(
-                  
                   width: 150,
-                  
                   margin: const EdgeInsets.only(
                     top: 5,
                     bottom: 15,
@@ -42,18 +43,23 @@ class _SweatShirtScreenState extends State<SweatShirtScreen> {
                   ),
                   clipBehavior: Clip.antiAlias,
                   decoration: BoxDecoration(
-                    color: Colors.grey,
+                    color: Colors.grey[350],
                     borderRadius: BorderRadius.circular(12),
                   ),
-
                   child: Row(
                     children: [
-                      
-                      Text(Hoodie[index]["name"]),
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        child: CustomTextWidget(
+                            yourtext: SweatShirt[index]["name"],
+                            fontweight: FontWeight.w600,
+                            fontsize: 13,
+                            fontColor: AppColors.Black),
+                      ),
                       Spacer(),
                       Container(
-                        height:150,
-                        child: Image.asset(Hoodie[index]["image"])),
+                          height: 150,
+                          child: Image.asset(SweatShirt[index]["image"])),
                     ],
                   ),
                 );
@@ -61,6 +67,7 @@ class _SweatShirtScreenState extends State<SweatShirtScreen> {
             ),
           ),
         ],
-      ),);
+      ),
+    );
   }
 }

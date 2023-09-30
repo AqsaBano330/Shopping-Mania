@@ -19,7 +19,6 @@ class _CarousalSliderState extends State<CarousalSlider> {
     "assets/images/winter sale/winter_sale5.jpg",
     "assets/images/winter sale/winter_sale3.PNG",
     "assets/images/winter sale/winter_sale7.jfif",
-    "assets/images/winter sale/winter_sale8.jpg",
   ];
 
   @override

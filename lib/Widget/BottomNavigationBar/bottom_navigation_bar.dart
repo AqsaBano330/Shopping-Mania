@@ -47,7 +47,7 @@ class _CurveBarState extends State<CurveBar> {
         colorFilter: index == 3
             ? ColorFilter.mode(Colors.white, BlendMode.srcIn)
             : ColorFilter.mode(Colors.black, BlendMode.srcIn),
-        child: const Icon(Icons.more, size: 26),
+        child: const Icon(Icons.chat, size: 26),
       ),
     ];
 

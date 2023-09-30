@@ -126,6 +126,9 @@ flutter:
     - assets/images/performance_hoodie/perforamce_hoodie_cover.PNG
     - assets/images/pulloverhoodies/pulloverhoodie_cover.jpg
     - assets/images/sherpahoodie/sherpa_hoodie_cover.jpg
+    - assets/images/crewneck sweat/crewneck_sweat_cover.PNG
+    - assets/images/graphic sweat/graphic_sweat_cover.jpg
+    - assets/images/lightweight sweat/lightweight_sweat_cover.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
